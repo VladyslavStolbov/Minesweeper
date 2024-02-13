@@ -1,1 +1,51 @@
 # Minesweeper
+
+## MVP:
+
+- [ ] Grid Generation: Generate a grid of tiles representing the game board.
+- [ ] Tile Placement: Place mines randomly on the grid.
+- [ ] Tile Interaction: Allow players to reveal tiles and flag potential mines.
+- [ ] Game Logic: Implement the core game rules, including revealing adjacent tiles and ending the game when a mine is clicked.
+- [ ] Win Condition: Check for win condition when all non-mine tiles are revealed.
+- [ ] Tested by players.
+
+## TODO:
+
+- [ ] Setup Unity Project:
+   - [ ] Create a new Unity project.
+   - [ ] Set up necessary folders for scripts, prefabs, and assets.
+- [ ] Create Tile Prefab:
+   - [ ] Design a prefab for a single tile with visual representation for unrevealed, revealed, flagged, and mine states.
+   - [ ] Attach a script to manage tile behavior (e.g., revealing, flagging).
+- [ ] Generate Grid:
+   - [ ] Write a script to generate a grid of tiles based on the desired size (rows and columns).
+   - [ ] Instantiate tile prefabs and position them accordingly.
+- [ ] Place Mines:
+   - [ ] Write a script to randomly place a specified number of mines on the grid.
+   - [ ] Ensure no two mines are placed in the same location.
+- [ ] Tile Interaction:
+   - [ ] Implement mouse click detection on tiles.
+   - [ ] Write logic to handle left-click to reveal a tile and right-click to flag/unflag a tile as a potential mine.
+   - [ ] Logic to left and right click together for revealing all cells around number without flags.
+- [ ] Game Logic:
+   - [ ] Write functions to handle revealing adjacent tiles when a tile with no adjacent mines is clicked.
+   - [ ] Implement game over conditions when a mine is clicked.
+- [ ] Win Condition:
+   - [ ] Write a function to check for the win condition when all non-mine tiles are revealed.
+   - [ ] Display a victory message when the win condition is met.
+- [ ] UI Implementation:
+   - [ ] Design and implement UI elements such as a restart button, timer, and mine counter.
+   - [ ] Display messages for game over and victory conditions.
+   - [ ] Create a start menu.
+   - [ ] Create a game over menu.
+- [ ] Android and Web compatibility.
+    - [ ] Ensure properly working android version
+    - [ ] Ensure properly working web version
+- [ ] Testing:
+   - [ ] Test the game extensively to ensure all features work as intended.
+   - [ ] Give a try to test another people my game.
+   - [ ] Debug any issues that arise during testing.
+- [ ] Polish:
+    - [ ] Refactor code for readability and optimization.
+    - [ ] Add sound effects and animations to enhance user experience.
+    - [ ] Make any necessary adjustments based on user feedback.

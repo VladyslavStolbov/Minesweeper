@@ -7,12 +7,14 @@
 - [ ] Tile Interaction: Allow players to reveal tiles and flag potential mines.
 - [ ] Game Logic: Implement the core game rules, including revealing adjacent tiles and ending the game when a mine is clicked.
 - [ ] Win Condition: Check for win condition when all non-mine tiles are revealed.
-- [ ] Tested by players.
+- [ ] Web Compatibility: Ensure the game can be played seamlessly in a web browser.
+- [ ] Android Compatibility: Optimize the game for Android devices, considering screen sizes and touch controls.
+- [ ] Player Testing: Conduct testing by allowing players to play the game and provide feedback for improvements.
 
 ## TODO:
 
 - [ ] Setup Unity Project:
-   - [ ] Create a new Unity project.
+   - [X] Create a new Unity project.
    - [ ] Set up necessary folders for scripts, prefabs, and assets.
 - [ ] Create Tile Prefab:
    - [ ] Design a prefab for a single tile with visual representation for unrevealed, revealed, flagged, and mine states.
@@ -38,9 +40,16 @@
    - [ ] Display messages for game over and victory conditions.
    - [ ] Create a start menu.
    - [ ] Create a game over menu.
-- [ ] Android and Web compatibility.
-    - [ ] Ensure properly working android version
-    - [ ] Ensure properly working web version
+- [ ] Android Compatibility (Primary):
+   - [ ] Adapt UI elements for Android devices, considering different screen sizes and resolutions.
+   - [ ] Implement touch controls for mobile gameplay.
+- [ ] Web Compatibility:
+   - [ ] Optimize the game for web deployment.
+   - [ ] Test the game in web browsers to ensure compatibility and performance.
+- [ ] Player Testing:
+    - [ ] Deploy the game to players for testing.
+    - [ ] Gather feedback and iterate on improvements based on player suggestions.
+    - [ ] Conduct further testing to ensure a smooth and enjoyable gameplay experience.
 - [ ] Testing:
    - [ ] Test the game extensively to ensure all features work as intended.
    - [ ] Give a try to test another people my game.

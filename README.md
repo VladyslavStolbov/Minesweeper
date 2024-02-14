@@ -15,7 +15,7 @@
 
 - [ ] Setup Unity Project:
    - [X] Create a new Unity project.
-   - [ ] Set up necessary folders for scripts, prefabs, and assets.
+   - [X] Set up necessary folders for scripts, prefabs, and assets.
 - [ ] Create Tile Prefab:
    - [ ] Design a prefab for a single tile with visual representation for unrevealed, revealed, flagged, and mine states.
    - [ ] Attach a script to manage tile behavior (e.g., revealing, flagging).

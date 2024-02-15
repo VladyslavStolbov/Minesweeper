@@ -1,23 +1,56 @@
 using System;
 using UnityEngine;
-using UnityEngine.tvOS;
 
-public enum State { Hover, Clicked, Revealed }
+public enum State { Unrevealed, Hover, Revealed, Flagged }
 
 public class Cell : MonoBehaviour
 {
+    
     private State _state;
+    private bool _hasMine = false;
+    [SerializeField] private GameObject _unrevealed;
     [SerializeField] private GameObject _hoverBorders;
+    [SerializeField] private GameObject _flag;
+    [SerializeField] private GameObject _mine;
     
     private void OnMouseOver()
     {
-        SetState(State.Hover);
+        HandleMouseClicks();
     }
 
     private void OnMouseExit()
     {
+        if (_state == State.Revealed || _state == State.Flagged) return;
+        SetState(State.Unrevealed);
+    }
+    private void HandleMouseClicks()
+    {
+        if (Input.GetMouseButton(1))
+        {
+            SetState(State.Flagged);
+            return;
+        }
+        if (Input.GetMouseButton(0))
+        {
+            SetState(State.Revealed);
+            return;
+        }
+        if (_state == State.Revealed || _state == State.Flagged)
+        {
+            return;
+        }
+        SetState(State.Hover);
     }
 
+
+    private void OnMouseUp()
+    {
+        if (_state == State.Hover && Input.GetMouseButton(1))
+        {
+            SetState(State.Flagged);
+        }
+    }
+    
     private void SetState(State state)
     {
         _state = state;
@@ -28,15 +61,41 @@ public class Cell : MonoBehaviour
     {
         switch (_state)
         {
+            case State.Unrevealed:
+                _unrevealed.SetActive(true);
+                _hoverBorders.SetActive(false);
+                
+                Debug.Log("Unrevealed");
+                break;
             case State.Hover:
                 _hoverBorders.SetActive(true);
+                
+                Debug.Log("Hover");
                 break;
-            case State.Clicked:
+            case State.Flagged:
+                _hoverBorders.SetActive(false);
+                _flag.SetActive(true);
+                
+                Debug.Log("Flagged");
                 break;
             case State.Revealed:
+                _unrevealed.SetActive(false);
+                _hoverBorders.SetActive(false);
+                CheckForMine();
+                
+                Debug.Log("Revealed");
                 break;
             default:
-                Debug.Log("Default");
+                _unrevealed.SetActive(true);
+                break;
+        }
+    }
+
+    private void CheckForMine()
+    {
+        if (_hasMine)
+        {
+            _mine.SetActive(true);
         }
     }
 }

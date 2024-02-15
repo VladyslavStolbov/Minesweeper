@@ -13,7 +13,7 @@
 
 ## TODO:
 
-- [ ] Setup Unity Project:
+- [X] Setup Unity Project:
    - [X] Create a new Unity project.
    - [X] Set up necessary folders for scripts, prefabs, and assets.
 - [ ] Create Tile Prefab:
@@ -38,7 +38,7 @@
 - [ ] UI Implementation:
    - [ ] Design and implement UI elements such as a restart button, timer, and mine counter.
    - [ ] Display messages for game over and victory conditions.
-   - [ ] Create a start menu.
+   - [ ] Create a start menu.w
    - [ ] Create a game over menu.
 - [ ] Android Compatibility (Primary):
    - [ ] Adapt UI elements for Android devices, considering different screen sizes and resolutions.

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public enum State { Unrevealed, Hover, Revealed, Flagged }
@@ -15,7 +14,7 @@ public class Cell : MonoBehaviour
     
     private void OnMouseOver()
     {
-        HandleMouseClicks();
+        HandleMouseClicks(); 
     }
 
     private void OnMouseExit()
@@ -41,15 +40,6 @@ public class Cell : MonoBehaviour
         }
         SetState(State.Hover);
     }
-
-
-    private void OnMouseUp()
-    {
-        if (_state == State.Hover && Input.GetMouseButton(1))
-        {
-            SetState(State.Flagged);
-        }
-    }
     
     private void SetState(State state)
     {
@@ -65,25 +55,21 @@ public class Cell : MonoBehaviour
                 _unrevealed.SetActive(true);
                 _hoverBorders.SetActive(false);
                 
-                Debug.Log("Unrevealed");
                 break;
             case State.Hover:
                 _hoverBorders.SetActive(true);
-                
-                Debug.Log("Hover");
+
                 break;
             case State.Flagged:
                 _hoverBorders.SetActive(false);
                 _flag.SetActive(true);
                 
-                Debug.Log("Flagged");
                 break;
             case State.Revealed:
                 _unrevealed.SetActive(false);
                 _hoverBorders.SetActive(false);
                 CheckForMine();
                 
-                Debug.Log("Revealed");
                 break;
             default:
                 _unrevealed.SetActive(true);

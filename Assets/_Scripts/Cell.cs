@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using _Scripts;
 using UnityEngine;
@@ -35,8 +34,8 @@ public class Cell : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && _isActive && _currentState != CellState.Flagged)
         {
+            RevealNearbyCells();
             SetState(CellState.Revealed);
-            GetNearbyCells();
         }
         else if (Input.GetMouseButtonDown(1) && _isActive)
         {
@@ -91,6 +90,20 @@ public class Cell : MonoBehaviour
         }
     }
 
+    private void RevealNearbyCells()
+    {
+        List <Cell> nearbyCells = GetNearbyCells();
+
+        foreach (Cell cell in nearbyCells)
+        {
+            if (!cell._hasMine)
+            {
+                cell.SetState(CellState.Revealed);
+            }
+        }
+    }
+    
+
     private List<Cell> GetNearbyCells()
     {
         List<Cell> nearbyCells = new List<Cell>();
@@ -119,7 +132,6 @@ public class Cell : MonoBehaviour
                 }
             }
         }
-        Debug.Log(nearbyCells.Count);
         return nearbyCells;
     }
 }

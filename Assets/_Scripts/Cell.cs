@@ -1,17 +1,17 @@
+using _Scripts;
 using UnityEngine;
-
-public enum State { Unrevealed, Hover, Revealed, Flagged }
 
 public class Cell : MonoBehaviour
 {
+    public bool _hasMine = false;
     
-    private State _state;
-    private bool _hasMine = false;
+    private CellState _currentState = CellState.Unrevealed;
+    private bool _isActive = true;
     [SerializeField] private GameObject _unrevealed;
     [SerializeField] private GameObject _hoverBorders;
     [SerializeField] private GameObject _flag;
     [SerializeField] private GameObject _mine;
-    
+
     private void OnMouseOver()
     {
         HandleMouseClicks(); 
@@ -19,60 +19,56 @@ public class Cell : MonoBehaviour
 
     private void OnMouseExit()
     {
-        if (_state == State.Revealed || _state == State.Flagged) return;
-        SetState(State.Unrevealed);
+        if (_currentState == CellState.Revealed || _currentState == CellState.Flagged) return;
+        SetState(CellState.Unrevealed);
     }
     private void HandleMouseClicks()
     {
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButtonDown(0) && _isActive && _currentState != CellState.Flagged)
         {
-            SetState(State.Flagged);
-            return;
+            SetState(CellState.Revealed);
         }
-        if (Input.GetMouseButton(0))
+        else if (Input.GetMouseButtonDown(1) && _isActive)
         {
-            SetState(State.Revealed);
-            return;
+            SetState(_currentState == CellState.Flagged ? CellState.Unrevealed : CellState.Flagged);
         }
-        if (_state == State.Revealed || _state == State.Flagged)
+        else if (_isActive && _currentState != CellState.Flagged)
         {
-            return;
+            SetState(CellState.Hover);
         }
-        SetState(State.Hover);
     }
     
-    private void SetState(State state)
+    private void SetState(CellState cellState)
     {
-        _state = state;
+        _currentState = cellState;
         HandleStates();
     }
     
     private void HandleStates()
     {
-        switch (_state)
+        switch (_currentState)
         {
-            case State.Unrevealed:
+            case CellState.Unrevealed:
                 _unrevealed.SetActive(true);
                 _hoverBorders.SetActive(false);
-                
+                _flag.SetActive(false);
+                _isActive = true;
                 break;
-            case State.Hover:
+            case CellState.Hover:
                 _hoverBorders.SetActive(true);
-
                 break;
-            case State.Flagged:
+            case CellState.Flagged:
                 _hoverBorders.SetActive(false);
                 _flag.SetActive(true);
-                
                 break;
-            case State.Revealed:
+            case CellState.Revealed:
                 _unrevealed.SetActive(false);
                 _hoverBorders.SetActive(false);
                 CheckForMine();
-                
+                _isActive = false;
                 break;
             default:
-                _unrevealed.SetActive(true);
+                SetState(CellState.Unrevealed);
                 break;
         }
     }

@@ -16,11 +16,11 @@
 - [X] Setup Unity Project:
    - [X] Create a new Unity project.
    - [X] Set up necessary folders for scripts, prefabs, and assets.
-- [ ] Create Tile Prefab:
-   - [ ] Design a prefab for a single tile with visual representation for unrevealed, revealed, flagged, and mine states.
-   - [ ] Attach a script to manage tile behavior (e.g., revealing, flagging).
+- [X] Create Tile Prefab:
+   - [X] Design a prefab for a single tile with visual representation for unrevealed, revealed, flagged, and mine states.
+   - [X] Attach a script to manage tile behavior (e.g., revealing, flagging).
 - [ ] Generate Grid:
-   - [ ] Write a script to generate a grid of tiles based on the desired size (rows and columns).
+   - [X] Write a script to generate a grid of tiles based on the desired size (rows and columns).
    - [ ] Instantiate tile prefabs and position them accordingly.
 - [ ] Place Mines:
    - [ ] Write a script to randomly place a specified number of mines on the grid.

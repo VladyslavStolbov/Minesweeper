@@ -1,22 +1,42 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
-    private int _width = 9;
-    private int _height = 9;
+    public static GameManager Instance { get; private set; }
+    
+    public int _width { get; private set; } = 9;
+    public int _height { get; private set; } = 9;
     private int _minesAmount = 10;
     private float _tileSize = 1f;
-    
     [SerializeField] private Cell _cell;
     [SerializeField] private Grid _grid;
-    
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this) 
+        { 
+            Destroy(this); 
+        } 
+        else 
+        { 
+            Instance = this; 
+        } 
+    }
+
     private void Start()
     {
         CreateGameBoard();
         AssignMines();
     }
 
+    public List<Cell> GetAvailableCells()
+    {
+        return _grid.GetComponentsInChildren<Cell>().ToList();
+    }
+    
     private void CreateGameBoard()
     {
         for (int row = 0; row < _height; row++)

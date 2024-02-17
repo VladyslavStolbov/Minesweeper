@@ -1,16 +1,25 @@
+using System;
+using System.Collections.Generic;
 using _Scripts;
 using UnityEngine;
 
 public class Cell : MonoBehaviour
 {
     public bool _hasMine = false;
-    
+
+    private GameManager _gameManager;
     private CellState _currentState = CellState.Unrevealed;
     private bool _isActive = true;
+    private Cell[] _cells;
     [SerializeField] private GameObject _unrevealed;
     [SerializeField] private GameObject _hoverBorders;
     [SerializeField] private GameObject _flag;
     [SerializeField] private GameObject _mine;
+
+    private void Start()
+    {
+        _gameManager = GameManager.Instance;
+    }
 
     private void OnMouseOver()
     {
@@ -27,6 +36,7 @@ public class Cell : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && _isActive && _currentState != CellState.Flagged)
         {
             SetState(CellState.Revealed);
+            GetNearbyCells();
         }
         else if (Input.GetMouseButtonDown(1) && _isActive)
         {
@@ -37,7 +47,7 @@ public class Cell : MonoBehaviour
             SetState(CellState.Hover);
         }
     }
-    
+
     private void SetState(CellState cellState)
     {
         _currentState = cellState;
@@ -79,5 +89,37 @@ public class Cell : MonoBehaviour
         {
             _mine.SetActive(true);
         }
+    }
+
+    private List<Cell> GetNearbyCells()
+    {
+        List<Cell> nearbyCells = new List<Cell>();
+        List<Cell> availableCells = _gameManager.GetAvailableCells();
+        Vector2 currentCellPosition = transform.position;
+
+        for (int x = -1; x <= 1; x++)
+        {
+            for (int y = -1; y <= 1; y++)
+            {
+                // Skip the current cell
+                if (x == 0 && y == 0)
+                {
+                    continue;
+                }
+
+                Vector2 nearbyCellPosition = currentCellPosition + new Vector2(x, y);
+
+                foreach (var cell in availableCells)
+                {
+                    Vector2 cellPosition = cell.transform.position;
+
+                    if (cellPosition != nearbyCellPosition) continue;
+                    nearbyCells.Add(cell);
+                    break;
+                }
+            }
+        }
+        Debug.Log(nearbyCells.Count);
+        return nearbyCells;
     }
 }

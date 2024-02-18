@@ -7,7 +7,7 @@ public class Cell : MonoBehaviour
     public bool _hasMine = false;
 
     private GameManager _gameManager;
-    private CellState _currentState = CellState.Unrevealed;
+    public CellState _currentState { get; private set; }= CellState.Unrevealed;
     private bool _isActive = true;
     private Cell[] _cells;
     [SerializeField] private GameObject _unrevealed;
@@ -47,7 +47,7 @@ public class Cell : MonoBehaviour
         }
     }
 
-    private void SetState(CellState cellState)
+    public void SetState(CellState cellState)
     {
         _currentState = cellState;
         HandleStates();

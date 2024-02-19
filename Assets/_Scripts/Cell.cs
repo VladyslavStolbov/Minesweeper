@@ -8,7 +8,7 @@ public class Cell : MonoBehaviour
     public bool _hasMine = false;
 
     private GameManager _gameManager;
-    public CellState _currentState { get; private set; }= CellState.Unrevealed;
+    private CellState _currentState = CellState.Unrevealed;
     private bool _isActive = true;
     private Cell[] _cells;
     [SerializeField] private GameObject _unrevealed;
@@ -29,19 +29,18 @@ public class Cell : MonoBehaviour
 
     private void OnMouseExit()
     {
-        if (_currentState == CellState.Revealed || _currentState == CellState.Flagged) return;
-        SetState(CellState.Unrevealed);
+        HandleMouseExit();
     }
+
     private void HandleMouseClicks()
     {
         if (Input.GetMouseButtonDown(0) && _isActive && _currentState != CellState.Flagged)
         {
-            RevealNearbyCells();
-            SetState(CellState.Revealed);
+            Reveal();
         }
         else if (Input.GetMouseButtonDown(1) && _isActive)
         {
-            SetState(_currentState == CellState.Flagged ? CellState.Unrevealed : CellState.Flagged);
+            ToggleFlag();
         }
         else if (_isActive && _currentState != CellState.Flagged)
         {
@@ -49,97 +48,70 @@ public class Cell : MonoBehaviour
         }
     }
 
-    public void SetState(CellState cellState)
+    private void Reveal()
+    {
+        RevealNearbyEmptyCells();
+        SetState(CellState.Revealed);
+    }
+    
+    private void ToggleFlag()
+    {
+        SetState(_currentState == CellState.Flagged ? CellState.Unrevealed : CellState.Flagged);
+    }
+
+    private void HandleMouseExit()
+    {
+        if (_currentState == CellState.Revealed || _currentState == CellState.Flagged) return;
+        SetState(CellState.Unrevealed);
+    }
+
+
+    private void SetState(CellState cellState)
     {
         _currentState = cellState;
-        HandleStates();
+        HandleVisualStates();
     }
     
-    private void HandleStates()
+    private void HandleVisualStates()
     {
-        switch (_currentState)
-        {
-            case CellState.Unrevealed:
-                _unrevealed.SetActive(true);
-                _hoverBorders.SetActive(false);
-                _flag.SetActive(false);
-                _isActive = true;
-                break;
-            case CellState.Hover:
-                _hoverBorders.SetActive(true);
-                break;
-            case CellState.Flagged:
-                _hoverBorders.SetActive(false);
-                _flag.SetActive(true);
-                break;
-            case CellState.Revealed:
-                _unrevealed.SetActive(false);
-                _hoverBorders.SetActive(false);
-                _number.gameObject.SetActive(true);
-                CheckForMine();
-                _isActive = false;
-                break;
-            default:
-                SetState(CellState.Unrevealed);
-                break;
-        }
+        _unrevealed.SetActive(_currentState == CellState.Unrevealed);
+        _hoverBorders.SetActive(_currentState == CellState.Hover);
+        _flag.SetActive(_currentState == CellState.Flagged);
+        _mine.SetActive(_currentState == CellState.Revealed && _hasMine);
+        _number.gameObject.SetActive(_currentState == CellState.Revealed);
     }
 
-    private void CheckForMine()
+    private void RevealNearbyEmptyCells()
     {
-        if (_hasMine)
+        IEnumerable<Cell> adjacentCells = GetAdjacentCells();
+        foreach (var cell in adjacentCells.Where(cell => !cell._hasMine && cell._currentState != CellState.Revealed))
         {
-            _mine.SetActive(true);
-        }
-    }
-
-    private void RevealNearbyCells()
-    {
-        List <Cell> nearbyCells = GetNearbyCells();
-        foreach (var cell in nearbyCells.Where(cell => !cell._hasMine))
-        {
-            cell.SetState(CellState.Revealed);
             cell.AssignNumber();
+            cell.Reveal();
         }
     }
     
 
-    private List<Cell> GetNearbyCells()
+    private IEnumerable<Cell> GetAdjacentCells()
     {
-        List<Cell> nearbyCells = new ();
-        List<Cell> availableCells = _gameManager.GetAvailableCells();
-        Vector2 currentCellPosition = transform.position;
+        Vector2[] directions = {
+            new Vector2Int(-1, -1), new Vector2Int(0, -1), new Vector2Int(1, -1),
+            new Vector2Int(-1, 0),                          new Vector2Int(1, 0),
+            new Vector2Int(-1, 1),  new Vector2Int(0, 1),  new Vector2Int(1, 1)
+        };
 
-        for (int x = -1; x <= 1; x++)
-        {
-            for (int y = -1; y <= 1; y++)
-            {
-                // Skip the current cell
-                if (x == 0 && y == 0)
-                {
-                    continue;
-                }
-
-                Vector2 nearbyCellPosition = currentCellPosition + new Vector2(x, y);
-
-                foreach (var cell in availableCells)
-                {
-                    Vector2 cellPosition = cell.transform.position;
-                    if (cellPosition != nearbyCellPosition) continue;
-                    nearbyCells.Add(cell);
-                    break;
-                }
-            }
-        }
-        return nearbyCells;
+        Vector2 currentPos = _gameManager.GetPosition(this);
+        return directions
+            .Select(dir => _gameManager.GetCellAtPosition(currentPos + dir))
+            .Where(cell => cell != null);
     }
+
 
     private void AssignNumber()
     {
-        List<Cell> nearbyCells = GetNearbyCells();
+        IEnumerable<Cell> nearbyCells = GetAdjacentCells();
         int minesAmount = nearbyCells.Count(cell => cell._hasMine);
-        if (minesAmount == 0) return;
-        Debug.Log(minesAmount);
-        _number.SetNumber(minesAmount);
+        if (minesAmount > 0)
+            _number.SetNumber(minesAmount);
     }
 }

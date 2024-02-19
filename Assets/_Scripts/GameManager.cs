@@ -68,4 +68,17 @@ public class GameManager : MonoBehaviour
             cells[index]._hasMine = true;
         }
     }
+
+    public Vector2 GetPosition(Cell cell)
+    {
+        Vector2 position = cell.transform.position;
+        return position;
+    }
+    
+    public Cell GetCellAtPosition(Vector2 position)
+    {
+        Cell[] cells = _grid.GetComponentsInChildren<Cell>();   
+        return cells.FirstOrDefault(cell => (Vector2)cell.transform.position == position);
+    }
+
 }

@@ -4,7 +4,7 @@ using UnityEngine.U2D;
 [ExecuteInEditMode] 
 public class CameraManager : MonoBehaviour
 {
-    [SerializeField] private GameObject _pixelPerfectCamera;
+    [SerializeField] private PixelPerfectCamera _pixelPerfectCamera;
 
     private void Start()
     {

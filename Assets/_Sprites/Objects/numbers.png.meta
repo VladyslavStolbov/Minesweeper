@@ -72,7 +72,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -150,10 +150,10 @@ TextureImporter:
       name: numbers_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 1
-        width: 9
-        height: 13
+        x: 6
+        y: 2
+        width: 7
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,10 +171,10 @@ TextureImporter:
       name: numbers_1
       rect:
         serializedVersion: 2
-        x: 20
-        y: 1
-        width: 10
-        height: 13
+        x: 21
+        y: 2
+        width: 8
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,10 +192,10 @@ TextureImporter:
       name: numbers_2
       rect:
         serializedVersion: 2
-        x: 36
-        y: 1
-        width: 10
-        height: 13
+        x: 37
+        y: 2
+        width: 8
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,10 +213,10 @@ TextureImporter:
       name: numbers_3
       rect:
         serializedVersion: 2
-        x: 52
-        y: 1
-        width: 10
-        height: 13
+        x: 53
+        y: 2
+        width: 8
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,10 +234,10 @@ TextureImporter:
       name: numbers_4
       rect:
         serializedVersion: 2
-        x: 68
-        y: 1
-        width: 10
-        height: 13
+        x: 69
+        y: 2
+        width: 8
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,10 +255,10 @@ TextureImporter:
       name: numbers_5
       rect:
         serializedVersion: 2
-        x: 84
-        y: 1
-        width: 10
-        height: 13
+        x: 85
+        y: 2
+        width: 8
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,10 +276,10 @@ TextureImporter:
       name: numbers_6
       rect:
         serializedVersion: 2
-        x: 100
-        y: 1
-        width: 10
-        height: 13
+        x: 101
+        y: 2
+        width: 8
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -297,10 +297,10 @@ TextureImporter:
       name: numbers_7
       rect:
         serializedVersion: 2
-        x: 116
-        y: 1
-        width: 10
-        height: 13
+        x: 117
+        y: 2
+        width: 8
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -317,7 +317,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1fac82c42838c4543b8b8914f6f12116
     internalID: 0
     vertices: []
     indices: 

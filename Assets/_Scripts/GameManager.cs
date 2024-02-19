@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     private int _minesAmount = 10;
     private float _tileSize = 1f;
     [SerializeField] private Cell _cell;
-    [SerializeField] private Grid _grid;
+    [SerializeField] private GameObject _grid;
 
     private void Awake()
     {

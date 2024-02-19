@@ -194,7 +194,7 @@ Camera:
   m_HDR: 1
   m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 1
+  m_ForceIntoRT: 0
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
@@ -238,13 +238,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AssetsPPU: 100
-  m_RefResolutionX: 320
-  m_RefResolutionY: 180
+  m_AssetsPPU: 16
+  m_RefResolutionX: 180
+  m_RefResolutionY: 320
   m_UpscaleRT: 0
   m_PixelSnapping: 0
-  m_CropFrameX: 0
-  m_CropFrameY: 0
+  m_CropFrameX: 1
+  m_CropFrameY: 1
   m_StretchFill: 0
 --- !u!1 &792200971
 GameObject:
@@ -306,12 +306,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 067747c11cb885f47be1718356f06eaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <_width>k__BackingField: 9
-  <_height>k__BackingField: 9
-  _minesAmount: 10
-  _tileSize: 1
   _cell: {fileID: 745657901622986464, guid: 9975a88fc73e6584cbf4e756e75bdb36, type: 3}
-  _grid: {fileID: 792200972}
+  _grid: {fileID: 792200971}
 --- !u!4 &1041803087
 Transform:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using _Scripts;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ public class Cell : MonoBehaviour
     [SerializeField] private GameObject _hoverBorders;
     [SerializeField] private GameObject _flag;
     [SerializeField] private GameObject _mine;
+    [SerializeField] private Number _number;
 
     private void Start()
     {
@@ -73,6 +75,7 @@ public class Cell : MonoBehaviour
             case CellState.Revealed:
                 _unrevealed.SetActive(false);
                 _hoverBorders.SetActive(false);
+                _number.gameObject.SetActive(true);
                 CheckForMine();
                 _isActive = false;
                 break;
@@ -93,20 +96,17 @@ public class Cell : MonoBehaviour
     private void RevealNearbyCells()
     {
         List <Cell> nearbyCells = GetNearbyCells();
-
-        foreach (Cell cell in nearbyCells)
+        foreach (var cell in nearbyCells.Where(cell => !cell._hasMine))
         {
-            if (!cell._hasMine)
-            {
-                cell.SetState(CellState.Revealed);
-            }
+            cell.SetState(CellState.Revealed);
+            cell.AssignNumber();
         }
     }
     
 
     private List<Cell> GetNearbyCells()
     {
-        List<Cell> nearbyCells = new List<Cell>();
+        List<Cell> nearbyCells = new ();
         List<Cell> availableCells = _gameManager.GetAvailableCells();
         Vector2 currentCellPosition = transform.position;
 
@@ -125,7 +125,6 @@ public class Cell : MonoBehaviour
                 foreach (var cell in availableCells)
                 {
                     Vector2 cellPosition = cell.transform.position;
-
                     if (cellPosition != nearbyCellPosition) continue;
                     nearbyCells.Add(cell);
                     break;
@@ -133,5 +132,14 @@ public class Cell : MonoBehaviour
             }
         }
         return nearbyCells;
+    }
+
+    private void AssignNumber()
+    {
+        List<Cell> nearbyCells = GetNearbyCells();
+        int minesAmount = nearbyCells.Count(cell => cell._hasMine);
+        if (minesAmount == 0) return;
+        Debug.Log(minesAmount);
+        _number.SetNumber(minesAmount);
     }
 }

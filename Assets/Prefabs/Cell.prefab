@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5085127359484656949}
   - component: {fileID: 4230929787462291231}
-  - component: {fileID: 3444489896897780962}
   m_Layer: 0
   m_Name: Number
   m_TagString: Untagged
@@ -87,28 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3444489896897780962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1018197647919905320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 147149c1170ec2846b765cca24c9b394, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sprites:
-  - {fileID: -7542371115539988336, guid: 1d0e02d3ac438844d8db341ef45d0f84, type: 3}
-  - {fileID: -1797931468360238817, guid: 1d0e02d3ac438844d8db341ef45d0f84, type: 3}
-  - {fileID: 8660018047190439917, guid: 1d0e02d3ac438844d8db341ef45d0f84, type: 3}
-  - {fileID: -3498881285385226111, guid: 1d0e02d3ac438844d8db341ef45d0f84, type: 3}
-  - {fileID: 4377404233718576581, guid: 1d0e02d3ac438844d8db341ef45d0f84, type: 3}
-  - {fileID: 4142773217156024776, guid: 1d0e02d3ac438844d8db341ef45d0f84, type: 3}
-  - {fileID: -5267421815309426554, guid: 1d0e02d3ac438844d8db341ef45d0f84, type: 3}
-  - {fileID: 396241215753336735, guid: 1d0e02d3ac438844d8db341ef45d0f84, type: 3}
-  _spriteRenderer: {fileID: 4230929787462291231}
 --- !u!1 &4150824863579616737
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,15 +179,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4150824863579616737}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 934b21f598e314d44a13a2e777adbca6, type: 3}
+  m_Script: {fileID: 11500000, guid: 260f3db332bb4edcb8b4fe355ed54d72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hasMine: 0
-  _unrevealed: {fileID: 9060724122535688849}
-  _hoverBorders: {fileID: 8385444636691553284}
-  _flag: {fileID: 6495540335631245563}
-  _mine: {fileID: 4594063694849241017}
-  _number: {fileID: 3444489896897780962}
 --- !u!1 &4594063694849241017
 GameObject:
   m_ObjectHideFlags: 0

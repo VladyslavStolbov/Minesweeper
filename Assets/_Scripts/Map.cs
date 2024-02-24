@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class Map
 {
-    private Grid<Cell> _grid;
+    private Grid<MapGridObject> _grid;
 
     public Map()
     {
-        _grid = new Grid<Cell>(10, 10, 10f, Vector3.zero, (Grid<Cell> g, int x, int y) => new Cell(_grid, x, y));
-    }        
+        _grid = new Grid<MapGridObject>(7, 10, 1f, Vector3.left,
+            (Grid<MapGridObject> g, int x, int y) => new MapGridObject(_grid, x, y));
+    }
+
+    public Grid<MapGridObject> GetGrid()
+    {
+        return _grid;
+    }
 }

@@ -47,6 +47,11 @@ public class Grid<TGridObject>
         return _height;
     }
 
+    public float GetCellSize()
+    {
+        return _cellSize;
+    }
+
     public void SetGridObject(int x, int y, TGridObject value)
     {
         if (x >= 0 && y >= 0 && x < _width && y < _height) _grid[x, y] = value;

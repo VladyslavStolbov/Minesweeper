@@ -9,10 +9,12 @@ public class Cell : MonoBehaviour
     [SerializeField] private Sprite _hoveredSprite;
     [SerializeField] private Sprite _flaggedSprite;
     [SerializeField] private Sprite _minedSprite;
-
+    
     private State _currentState = State.Unclicked;
     private SpriteRenderer _spriteRenderer;
     private bool _isActive = true;
+    private bool _isFlagged = false;
+    private bool _isMined = false;
     
     private void Awake()
     {
@@ -47,6 +49,15 @@ public class Cell : MonoBehaviour
         UpdateSprite();
     }
 
+    public void SetMine()
+    {
+        _isMined = true;
+    }
+
+    public bool IsMined()
+    {
+        return _isMined;
+    }
     private void UpdateSprite()
     {
         switch (_currentState)

@@ -13,7 +13,6 @@ public class Cell : MonoBehaviour
     private State _currentState = State.Unclicked;
     private SpriteRenderer _spriteRenderer;
     private bool _isActive = true;
-    private bool _isFlagged = false;
     private bool _isMined = false;
     
     private void Awake()
@@ -23,23 +22,46 @@ public class Cell : MonoBehaviour
 
     private void OnMouseOver()
     {
-        SetState(State.Hovered);
-        if (Input.GetMouseButton(0))
+        if (_isActive)
         {
-            SetState(State.Clicked);
+            SetState(State.Hovered);
         }
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButtonDown(0))
+        {
+            HandleLeftClick();
+        } 
+        
+        else if (Input.GetMouseButtonDown(1))
+        {
+            HandleRightClick();
+        }
+    }
+
+    private void HandleRightClick()
+    {
+        if (_isActive)
         {
             SetState(State.Flagged);
         }
+            
+        else if (_currentState == State.Flagged)
+        {
+            SetState(State.Unclicked);
+        }
+    }
+
+    private void HandleLeftClick()
+    {
+        if (!_isActive) return;
+        SetState(_isMined ? State.Mined : State.Clicked);
     }
 
     private void OnMouseExit()
     {
         if (_isActive)
         {
-            _spriteRenderer.sprite = _unclickedSprite;
+            SetState(State.Unclicked);
         }
     }
     
@@ -63,6 +85,7 @@ public class Cell : MonoBehaviour
         switch (_currentState)
         {
             case State.Unclicked:
+                _isActive = true;
                 _spriteRenderer.sprite = _unclickedSprite;
                 break;
             case State.Hovered:
@@ -73,6 +96,7 @@ public class Cell : MonoBehaviour
                 _spriteRenderer.sprite = _flaggedSprite;
                 break;
             case State.Mined:
+                _isActive = false;
                 _spriteRenderer.sprite = _minedSprite;
                 break;
             case State.Clicked:

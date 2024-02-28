@@ -1,5 +1,8 @@
+using System;
 using System.Collections.Generic;
+using _Scripts;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Grid : MonoBehaviour
 {
@@ -15,6 +18,14 @@ public class Grid : MonoBehaviour
     {
         _cells = new List<Cell>();
         Setup(_width, _height, _cellSize);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.A))
+        {
+            DebugRevealBoard();
+        } 
     }
 
     private void Setup(int width, int height, float cellSize)
@@ -47,6 +58,14 @@ public class Grid : MonoBehaviour
             if (cell.IsMined()) continue;
             cell.SetMine();
             minesPlaced++;
+        }
+    }
+
+    private void DebugRevealBoard()
+    {
+        foreach (Cell cell in _cells)
+        {
+            cell.SetState(cell.IsMined() ? State.Mined : State.Clicked);
         }
     }
 }

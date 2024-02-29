@@ -66,7 +66,7 @@ public class Grid : MonoBehaviour
         return GetNeighbours(location).Count(cell => cell.IsMined());
     }
     
-    private List<Cell> GetNeighbours(Vector2 pos)
+    public List<Cell> GetNeighbours(Vector2 pos)
     {
         List<Cell> neighbours = new List<Cell>();
 

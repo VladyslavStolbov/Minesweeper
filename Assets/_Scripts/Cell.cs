@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using _Scripts;
 using UnityEngine;
 
@@ -14,8 +16,8 @@ public class Cell : MonoBehaviour
     private Grid _grid;
     private Vector2 _position;
     private State _currentState = State.Unclicked;
-    private int _minesAround;
     private SpriteRenderer _spriteRenderer;
+    private int _minesAround;
     private bool _isActive = true;
     private bool _isMined = false;
     
@@ -116,8 +118,32 @@ public class Cell : MonoBehaviour
     {
         _isActive = false;
         _minesAround = _grid.CountMines(transform.localPosition);
-        if (_minesAround == 0) gameObject.SetActive(false);
-        else _spriteRenderer.sprite = _numberSprites[_minesAround - 1];
+        if (_minesAround == 0)
+        {
+            Expand();
+        }
+        else
+        {
+            _spriteRenderer.sprite = _numberSprites[_minesAround - 1];
+        }
        
+    }
+
+    private void Expand()
+    {
+        // Mark the cell as visited to prevent infinite recursion
+        _isActive = false;
+    
+        // Hide the current cell
+        gameObject.SetActive(false);
+    
+        // Get the neighboring cells
+        List<Cell> neighbours = _grid.GetNeighbours(transform.localPosition);
+    
+        // Recursively reveal neighboring cells with no neighboring mines
+        foreach (var neighbour in neighbours.Where(neighbour => neighbour._isActive))
+        {
+            neighbour.HandleClickedState();
+        }
     }
 }

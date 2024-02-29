@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using _Scripts;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class Grid : MonoBehaviour
 {
@@ -54,12 +54,38 @@ public class Grid : MonoBehaviour
         int minesPlaced = 0;
         while (minesPlaced != _minesAmount)
         {
-            Cell cell = _cells[Random.Range(0, _cells.Count)];
+            Cell cell = _cells[UnityEngine.Random.Range(0, _cells.Count)];
             if (cell.IsMined()) continue;
             cell.SetMine();
             minesPlaced++;
         }
     }
+
+    public int CountMines(Vector2 location)
+    {
+        return GetNeighbours(location).Count(cell => cell.IsMined());
+    }
+    
+    private List<Cell> GetNeighbours(Vector2 pos)
+    {
+        List<Cell> neighbours = new List<Cell>();
+
+        foreach (Cell cell in _cells)
+        {
+            Vector2 cellPosition = cell.transform.position;
+            float xDiff= Mathf.Abs(pos.x - cellPosition.x);
+            float yDiff = Mathf.Abs(pos.y - cellPosition.y);
+
+            // Check if the cell is adjacent in any direction (horizontal, vertical, or diagonal)
+            if ((xDiff <= 1 && yDiff <= 1) && (xDiff + yDiff > 0 && xDiff + yDiff <= 2))
+            {
+                neighbours.Add(cell);
+            }
+        }
+
+        return neighbours;
+    }
+    
 
     private void DebugRevealBoard()
     {

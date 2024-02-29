@@ -9,14 +9,19 @@ public class Cell : MonoBehaviour
     [SerializeField] private Sprite _hoveredSprite;
     [SerializeField] private Sprite _flaggedSprite;
     [SerializeField] private Sprite _minedSprite;
-    
+    [SerializeField] private Sprite[] _numberSprites;
+
+    private Grid _grid;
+    private Vector2 _position;
     private State _currentState = State.Unclicked;
+    private int _minesAround;
     private SpriteRenderer _spriteRenderer;
     private bool _isActive = true;
     private bool _isMined = false;
     
     private void Awake()
     {
+        _grid = GameObject.FindWithTag("Grid").GetComponent<Grid>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -100,11 +105,19 @@ public class Cell : MonoBehaviour
                 _spriteRenderer.sprite = _minedSprite;
                 break;
             case State.Clicked:
-                _isActive = false;
-                gameObject.SetActive(false);
+                HandleClickedState();
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
+    }
+
+    private void HandleClickedState()
+    {
+        _isActive = false;
+        _minesAround = _grid.CountMines(transform.localPosition);
+        if (_minesAround == 0) gameObject.SetActive(false);
+        else _spriteRenderer.sprite = _numberSprites[_minesAround - 1];
+       
     }
 }

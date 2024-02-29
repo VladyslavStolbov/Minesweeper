@@ -150,3 +150,12 @@ MonoBehaviour:
   _hoveredSprite: {fileID: -1488734192, guid: b40ce5d7f66fa0b4ca603d3c17d2ce87, type: 3}
   _flaggedSprite: {fileID: -1102548570, guid: b40ce5d7f66fa0b4ca603d3c17d2ce87, type: 3}
   _minedSprite: {fileID: -246331648, guid: b40ce5d7f66fa0b4ca603d3c17d2ce87, type: 3}
+  _numberSprites:
+  - {fileID: -7542371115539988336, guid: 1d0e02d3ac438844d8db341ef45d0f84, type: 3}
+  - {fileID: -1797931468360238817, guid: 1d0e02d3ac438844d8db341ef45d0f84, type: 3}
+  - {fileID: 8660018047190439917, guid: 1d0e02d3ac438844d8db341ef45d0f84, type: 3}
+  - {fileID: -3498881285385226111, guid: 1d0e02d3ac438844d8db341ef45d0f84, type: 3}
+  - {fileID: 4377404233718576581, guid: 1d0e02d3ac438844d8db341ef45d0f84, type: 3}
+  - {fileID: 4142773217156024776, guid: 1d0e02d3ac438844d8db341ef45d0f84, type: 3}
+  - {fileID: -5267421815309426554, guid: 1d0e02d3ac438844d8db341ef45d0f84, type: 3}
+  - {fileID: 396241215753336735, guid: 1d0e02d3ac438844d8db341ef45d0f84, type: 3}

@@ -2,9 +2,9 @@
 
 ## MVP:
 
-- [ ] Grid Generation: Generate a grid of tiles representing the game board.
-- [ ] Tile Placement: Place mines randomly on the grid.
-- [ ] Tile Interaction: Allow players to reveal tiles and flag potential mines.
+- [X] Grid Generation: Generate a grid of tiles representing the game board.
+- [X] Tile Placement: Place mines randomly on the grid.
+- [X] Tile Interaction: Allow players to reveal tiles and flag potential mines.
 - [ ] Game Logic: Implement the core game rules, including revealing adjacent tiles and ending the game when a mine is clicked.
 - [ ] Win Condition: Check for win condition when all non-mine tiles are revealed.
 - [ ] Web Compatibility: Ensure the game can be played seamlessly in a web browser.

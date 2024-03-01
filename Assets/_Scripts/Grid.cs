@@ -13,7 +13,7 @@ public class Grid : MonoBehaviour
     [SerializeField] private float _cellSize = 1f;
 
     private List<Cell> _cells;
-    
+
     private void Start()
     {
         _cells = new List<Cell>();
@@ -25,7 +25,7 @@ public class Grid : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             DebugRevealBoard();
-        } 
+        }
     }
 
     private void Setup(int width, int height, float cellSize)
@@ -44,7 +44,7 @@ public class Grid : MonoBehaviour
                 float xPosition = col - (width - 1) / 2f;
                 float yPosition = row - (height - 1) / 2f;
                 newCell.localPosition = new Vector2(xPosition * cellSize, yPosition * cellSize);
-                _cells.Add(newCell.GetComponent<Cell>()); 
+                _cells.Add(newCell.GetComponent<Cell>());
             }
         }
     }
@@ -65,7 +65,7 @@ public class Grid : MonoBehaviour
     {
         return GetNeighbours(location).Count(cell => cell.IsMined());
     }
-    
+
     public List<Cell> GetNeighbours(Vector2 pos)
     {
         List<Cell> neighbours = new List<Cell>();
@@ -73,7 +73,7 @@ public class Grid : MonoBehaviour
         foreach (Cell cell in _cells)
         {
             Vector2 cellPosition = cell.transform.position;
-            float xDiff= Mathf.Abs(pos.x - cellPosition.x);
+            float xDiff = Mathf.Abs(pos.x - cellPosition.x);
             float yDiff = Mathf.Abs(pos.y - cellPosition.y);
 
             // Check if the cell is adjacent in any direction (horizontal, vertical, or diagonal)
@@ -85,7 +85,7 @@ public class Grid : MonoBehaviour
 
         return neighbours;
     }
-    
+
 
     private void DebugRevealBoard()
     {

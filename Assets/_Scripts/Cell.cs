@@ -71,6 +71,12 @@ public class Cell : MonoBehaviour
             SetState(State.Unclicked);
         }
     }
+
+    public State GetState()
+    {
+        return _currentState;
+    }
+        
     
     public void SetState(State newState)
     {
@@ -107,43 +113,12 @@ public class Cell : MonoBehaviour
                 _spriteRenderer.sprite = _minedSprite;
                 break;
             case State.Clicked:
-                HandleClickedState();
+                gameObject.SetActive(false);                
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
     }
 
-    private void HandleClickedState()
-    {
-        _isActive = false;
-        _minesAround = _grid.CountMines(transform.localPosition);
-        if (_minesAround == 0)
-        {
-            Expand();
-        }
-        else
-        {
-            _spriteRenderer.sprite = _numberSprites[_minesAround - 1];
-        }
-       
-    }
 
-    private void Expand()
-    {
-        // Mark the cell as visited to prevent infinite recursion
-        _isActive = false;
-    
-        // Hide the current cell
-        gameObject.SetActive(false);
-    
-        // Get the neighboring cells
-        List<Cell> neighbours = _grid.GetNeighbours(transform.localPosition);
-    
-        // Recursively reveal neighboring cells with no neighboring mines
-        foreach (var neighbour in neighbours.Where(neighbour => neighbour._isActive))
-        {
-            neighbour.HandleClickedState();
-        }
-    }
 }

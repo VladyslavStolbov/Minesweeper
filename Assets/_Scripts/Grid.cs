@@ -6,16 +6,32 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour
 {
+    public static Grid Instance;
+    
     [SerializeField] private Transform _cell;
     [SerializeField] private int _width = 9;
     [SerializeField] private int _height = 9;
     [SerializeField] private int _minesAmount = 10;
     [SerializeField] private float _cellSize = 1f;
 
+    private GameManager _gameManager;
     private List<Cell> _cells;
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    
     private void Start()
     {
+        _gameManager = GameManager.Instance;
         _cells = new List<Cell>();
         Setup(_width, _height, _cellSize);
     }
@@ -24,7 +40,7 @@ public class Grid : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            DebugRevealBoard();
+            RevealBoard();
         }
     }
 
@@ -87,11 +103,11 @@ public class Grid : MonoBehaviour
     }
 
 
-    private void DebugRevealBoard()
+    public void RevealBoard()
     {
         foreach (Cell cell in _cells)
         {
-            cell.SetState(cell.IsMined() ? State.Mined : State.Clicked);
+            cell.ShowGameOverState();
         }
     }
 

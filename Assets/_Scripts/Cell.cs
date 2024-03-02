@@ -11,9 +11,13 @@ public class Cell : MonoBehaviour
     [SerializeField] private Sprite _unclickedSprite;
     [SerializeField] private Sprite _hoveredSprite;
     [SerializeField] private Sprite _flaggedSprite;
-    [SerializeField] private Sprite _minedSprite;
+    [SerializeField] private Sprite _flaggedCorrectSprite;
+    [SerializeField] private Sprite _flaggedWrongSprite;
+    [SerializeField] private Sprite _mineSprite;
+    [SerializeField] private Sprite _mineActivatedSprite;
     [SerializeField] private Sprite[] _numberSprites;
 
+    private GameManager _gameManager;
     private Grid _grid;
     private Vector2 _position;
     private State _currentState = State.Unclicked;
@@ -26,6 +30,7 @@ public class Cell : MonoBehaviour
     {
         _grid = GameObject.FindWithTag("Grid").GetComponent<Grid>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _gameManager = GameManager.Instance;
     }
 
     private void OnMouseOver()
@@ -90,6 +95,28 @@ public class Cell : MonoBehaviour
         }
     }
 
+    public void ShowGameOverState()
+    {
+        _isActive = false;
+        if (_currentState == State.Mined) return;
+        if (_isMined && _currentState != State.Flagged)
+        {
+            _spriteRenderer.sprite = _mineSprite;
+        }
+        else if (_currentState == State.Flagged != _isMined)
+        {
+            _spriteRenderer.sprite = _flaggedWrongSprite;
+        }
+        else if (_currentState == State.Flagged && _isMined)
+        {
+            _spriteRenderer.sprite = _flaggedCorrectSprite;
+        }
+        else
+        {
+            SetState(State.Clicked);
+        }
+    }
+    
     public void SetMine()
     {
         _isMined = true;
@@ -115,8 +142,7 @@ public class Cell : MonoBehaviour
                 _spriteRenderer.sprite = _flaggedSprite;
                 break;
             case State.Mined:
-                _isActive = false;
-                _spriteRenderer.sprite = _minedSprite;
+                HandleMinedState();
                 break;
             case State.Clicked:
                 HandleClickedState();            
@@ -124,6 +150,13 @@ public class Cell : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException();
         }
+    }
+
+    private void HandleMinedState()
+    {
+        _isActive = false;
+        _spriteRenderer.sprite = _mineActivatedSprite;
+        _gameManager.LoseGame();
     }
 
     private void HandleClickedState()
@@ -134,12 +167,10 @@ public class Cell : MonoBehaviour
         if (_minesAround == 0)
         {
             gameObject.SetActive(false);
-            foreach (Cell cell in _grid.GetNeighbours(transform.localPosition))
+            foreach (var cell in _grid.GetNeighbours(transform.localPosition)
+                         .Where(cell => cell.GetState() != State.Clicked))
             {
-                if (cell.GetState() != State.Clicked)
-                {
-                    cell.SetState(State.Clicked);
-                }
+                cell.SetState(State.Clicked);
             }
         }
         else

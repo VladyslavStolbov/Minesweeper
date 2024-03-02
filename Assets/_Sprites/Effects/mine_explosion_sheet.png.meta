@@ -1,10 +1,40 @@
 fileFormatVersion: 2
-guid: b40ce5d7f66fa0b4ca603d3c17d2ce87
+guid: c119eeed56543d74b95444d485d362ab
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4179861397644083694
-    second: States_0
+      213: 5062127468289797208
+    second: mine_explosion_sheet_0
+  - first:
+      213: 8984558392516750908
+    second: mine_explosion_sheet_1
+  - first:
+      213: 7196613027737836293
+    second: mine_explosion_sheet_2
+  - first:
+      213: -9141151409191847871
+    second: mine_explosion_sheet_3
+  - first:
+      213: -8306594258145938919
+    second: mine_explosion_sheet_4
+  - first:
+      213: 3392218579225029609
+    second: mine_explosion_sheet_5
+  - first:
+      213: -3878000650647251672
+    second: mine_explosion_sheet_6
+  - first:
+      213: 8042078806917110006
+    second: mine_explosion_sheet_7
+  - first:
+      213: -4985488926212578610
+    second: mine_explosion_sheet_8
+  - first:
+      213: -641861536766707764
+    second: mine_explosion_sheet_9
+  - first:
+      213: -4537596874408838592
+    second: mine_explosion_sheet_10
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +81,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,34 +156,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: States_0
+      name: mine_explosion_sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ee181f89bc9d10a30800000000000000
-      internalID: 4179861397644083694
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: States_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +170,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 445e3c39c2f769c409cf57b9e69d048d
-      internalID: -1102548570
+      spriteID: 9247a724f689c024da32fd3a5044a13c
+      internalID: -1710122730
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: States_2
+      name: mine_explosion_sheet_1
       rect:
         serializedVersion: 2
         x: 32
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,41 +191,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8083d7a89ba840343830510e893559e4
-      internalID: -1354684002
+      spriteID: 580288af9065e0d4f9815f381b08cec2
+      internalID: 780478714
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: States_3
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eee24c6dace5cbd4cba32c99bc2bb544
-      internalID: 317672859
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: States_4
+      name: mine_explosion_sheet_2
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,41 +212,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c0887646394057429efa77d4397db09
-      internalID: -367645955
+      spriteID: a647bbda84439884a91bb95a5a881dd4
+      internalID: -98115075
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: States_5
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2b1b9847e3166b94584adc19c51f659f
-      internalID: 2121660017
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: States_6
+      name: mine_explosion_sheet_3
       rect:
         serializedVersion: 2
         x: 96
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,8 +233,134 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 846d94f622ac04645a9b711676563bf6
-      internalID: 1216909212
+      spriteID: 9681c598cc406e040920ae078aa29cb9
+      internalID: 1093219193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mine_explosion_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1288fbad08238a145b9f8fdc71b4a4e8
+      internalID: -1797933605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mine_explosion_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ad473533a4ffb64ebb43c4fa96573b0
+      internalID: 841922673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mine_explosion_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a764e54c8ab9cc64faa04c945f0a3a11
+      internalID: 1675429164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mine_explosion_sheet_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2628ff1d93e88834a9ab44397d94c9a6
+      internalID: 1422356110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mine_explosion_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71aaf69cae363954e96df07fda6a681e
+      internalID: -1814228454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mine_explosion_sheet_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 229014c56e3fa17418df5158136ca115
+      internalID: 294172920
       vertices: []
       indices: 
       edges: []
@@ -275,7 +368,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 487e71084fd027543bbd9c9f6788f0b4
+    spriteID: 93d675f47fc16044589c89c109c3a80a
     internalID: 0
     vertices: []
     indices: 
@@ -283,13 +376,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      States_0: 4179861397644083694
-      States_1: -1102548570
-      States_2: -1354684002
-      States_3: 317672859
-      States_4: -367645955
-      States_5: 2121660017
-      States_6: 1216909212
+      mine_explosion_sheet_0: -1710122730
+      mine_explosion_sheet_1: 780478714
+      mine_explosion_sheet_2: -98115075
+      mine_explosion_sheet_3: 1093219193
+      mine_explosion_sheet_4: -1797933605
+      mine_explosion_sheet_5: 841922673
+      mine_explosion_sheet_6: 1675429164
+      mine_explosion_sheet_7: 1422356110
+      mine_explosion_sheet_8: -1814228454
+      mine_explosion_sheet_9: 294172920
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

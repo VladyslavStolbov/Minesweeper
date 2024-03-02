@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2097240574594273379}
   - component: {fileID: 7756855283432856757}
   - component: {fileID: 7188857058776069956}
+  - component: {fileID: 3895318271228696868}
   m_Layer: 0
   m_Name: Cell
   m_TagString: Untagged
@@ -147,9 +148,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _unclickedSprite: {fileID: 4179861397644083694, guid: b40ce5d7f66fa0b4ca603d3c17d2ce87, type: 3}
-  _hoveredSprite: {fileID: -1488734192, guid: b40ce5d7f66fa0b4ca603d3c17d2ce87, type: 3}
+  _hoveredSprite: {fileID: -1354684002, guid: b40ce5d7f66fa0b4ca603d3c17d2ce87, type: 3}
   _flaggedSprite: {fileID: -1102548570, guid: b40ce5d7f66fa0b4ca603d3c17d2ce87, type: 3}
-  _minedSprite: {fileID: -246331648, guid: b40ce5d7f66fa0b4ca603d3c17d2ce87, type: 3}
+  _flaggedCorrectSprite: {fileID: 2121660017, guid: b40ce5d7f66fa0b4ca603d3c17d2ce87, type: 3}
+  _flaggedWrongSprite: {fileID: 1216909212, guid: b40ce5d7f66fa0b4ca603d3c17d2ce87, type: 3}
+  _mineSprite: {fileID: 317672859, guid: b40ce5d7f66fa0b4ca603d3c17d2ce87, type: 3}
+  _mineActivatedSprite: {fileID: -367645955, guid: b40ce5d7f66fa0b4ca603d3c17d2ce87, type: 3}
   _numberSprites:
   - {fileID: -7542371115539988336, guid: 1d0e02d3ac438844d8db341ef45d0f84, type: 3}
   - {fileID: -1797931468360238817, guid: 1d0e02d3ac438844d8db341ef45d0f84, type: 3}
@@ -159,3 +163,19 @@ MonoBehaviour:
   - {fileID: 4142773217156024776, guid: 1d0e02d3ac438844d8db341ef45d0f84, type: 3}
   - {fileID: -5267421815309426554, guid: 1d0e02d3ac438844d8db341ef45d0f84, type: 3}
   - {fileID: 396241215753336735, guid: 1d0e02d3ac438844d8db341ef45d0f84, type: 3}
+--- !u!111 &3895318271228696868
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4150824863579616737}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0

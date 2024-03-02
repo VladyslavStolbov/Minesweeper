@@ -94,4 +94,15 @@ public class Grid : MonoBehaviour
             cell.SetState(cell.IsMined() ? State.Mined : State.Clicked);
         }
     }
+
+    public void ExpandBoard(Vector2 pos)
+    {
+        List<Cell> neighbours = GetNeighbours(pos);
+
+        foreach (var neighbour in neighbours
+                     .Where(neighbour => neighbour.GetState() == State.Unclicked && !neighbour.IsMined()))
+        {
+            neighbour.SetState(State.Clicked);
+        }
+    }
 }

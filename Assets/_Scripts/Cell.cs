@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using _Scripts;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class Cell : MonoBehaviour
 {
@@ -82,6 +83,11 @@ public class Cell : MonoBehaviour
     {
         _currentState = newState;
         UpdateSprite();
+
+        if (newState == State.Clicked && !_isMined && _grid.CountMines(transform.localPosition) == 0)
+        {
+            _grid.ExpandBoard(transform.localPosition);
+        }
     }
 
     public void SetMine()
@@ -113,12 +119,32 @@ public class Cell : MonoBehaviour
                 _spriteRenderer.sprite = _minedSprite;
                 break;
             case State.Clicked:
-                gameObject.SetActive(false);                
+                HandleClickedState();            
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
     }
 
-
+    private void HandleClickedState()
+    {
+        _isActive = false;
+        _minesAround = _grid.CountMines(transform.localPosition);
+    
+        if (_minesAround == 0)
+        {
+            gameObject.SetActive(false);
+            foreach (Cell cell in _grid.GetNeighbours(transform.localPosition))
+            {
+                if (cell.GetState() != State.Clicked)
+                {
+                    cell.SetState(State.Clicked);
+                }
+            }
+        }
+        else
+        {
+            _spriteRenderer.sprite = _numberSprites[_minesAround - 1];
+        }
+    }
 }

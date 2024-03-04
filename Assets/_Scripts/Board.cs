@@ -4,9 +4,9 @@ using System.Linq;
 using _Scripts;
 using UnityEngine;
 
-public class Grid : MonoBehaviour
+public class Board : MonoBehaviour
 {
-    public static Grid Instance;
+    public static Board Instance;
     
     [SerializeField] private Transform _cell;
     [SerializeField] private int _width = 9;

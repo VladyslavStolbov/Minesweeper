@@ -18,7 +18,7 @@ public class Cell : MonoBehaviour
     [SerializeField] private Sprite[] _numberSprites;
 
     private GameManager _gameManager;
-    private Grid _grid;
+    private Board _board;
     private Vector2 _position;
     private State _currentState = State.Unclicked;
     private SpriteRenderer _spriteRenderer;
@@ -28,7 +28,7 @@ public class Cell : MonoBehaviour
     
     private void Awake()
     {
-        _grid = GameObject.FindWithTag("Grid").GetComponent<Grid>();
+        _board = GameObject.FindWithTag("Grid").GetComponent<Board>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _gameManager = GameManager.Instance;
     }
@@ -89,9 +89,9 @@ public class Cell : MonoBehaviour
         _currentState = newState;
         UpdateSprite();
 
-        if (newState == State.Clicked && !_isMined && _grid.CountMines(transform.localPosition) == 0)
+        if (newState == State.Clicked && !_isMined && _board.CountMines(transform.localPosition) == 0)
         {
-            _grid.ExpandBoard(transform.localPosition);
+            _board.ExpandBoard(transform.localPosition);
         }
     }
 
@@ -162,12 +162,12 @@ public class Cell : MonoBehaviour
     private void HandleClickedState()
     {
         _isActive = false;
-        _minesAround = _grid.CountMines(transform.localPosition);
+        _minesAround = _board.CountMines(transform.localPosition);
     
         if (_minesAround == 0)
         {
             gameObject.SetActive(false);
-            foreach (var cell in _grid.GetNeighbours(transform.localPosition)
+            foreach (var cell in _board.GetNeighbours(transform.localPosition)
                          .Where(cell => cell.GetState() != State.Clicked))
             {
                 cell.SetState(State.Clicked);

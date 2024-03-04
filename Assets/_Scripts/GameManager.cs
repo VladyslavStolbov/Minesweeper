@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    private Grid _grid;
+    private Board _board;
     
     private void Awake()
     {
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     { 
-        _grid = Grid.Instance; 
+        _board = Board.Instance; 
     }
 
     public void WinGame()
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     
     public void LoseGame()
     {
-        _grid.RevealBoard();
+        _board.RevealBoard();
     }
 }
 

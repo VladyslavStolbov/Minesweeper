@@ -121,4 +121,13 @@ public class Board : MonoBehaviour
             neighbour.SetState(State.Clicked);
         }
     }
+
+    public void CheckGameState()
+    {
+        int count = _cells.Count(cell => cell._isActive);
+        if (count == _minesAmount)
+        {
+            _gameManager.WinGame();
+        }
+    }
 }

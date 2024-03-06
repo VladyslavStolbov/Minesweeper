@@ -17,13 +17,13 @@ public class Cell : MonoBehaviour
     [SerializeField] private Sprite _mineActivatedSprite;
     [SerializeField] private Sprite[] _numberSprites;
 
+    public bool _isActive { get; private set; } = true;
     private GameManager _gameManager;
     private Board _board;
     private Vector2 _position;
     private State _currentState = State.Unclicked;
     private SpriteRenderer _spriteRenderer;
     private int _minesAround;
-    private bool _isActive = true;
     private bool _isMined = false;
     
     private void Awake()
@@ -62,12 +62,14 @@ public class Cell : MonoBehaviour
         {
             SetState(State.Unclicked);
         }
+        _board.CheckGameState();
     }
 
     private void HandleLeftClick()
     {
         if (!_isActive) return;
         SetState(_isMined ? State.Mined : State.Clicked);
+        _board.CheckGameState();
     }
 
     private void OnMouseExit()

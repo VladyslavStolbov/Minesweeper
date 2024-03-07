@@ -122,10 +122,10 @@ public class Board : MonoBehaviour
         }
     }
 
-    public void CheckGameState()
+    public void CheckWinState()
     {
-        int count = _cells.Count(cell => cell._isActive);
-        if (count == _minesAmount)
+        int nonMinedCellsRevealed = _cells.Count(cell => !cell.IsMined() && cell.GetState() == State.Clicked);
+        if (nonMinedCellsRevealed == _cells.Count - _minesAmount)
         {
             _gameManager.WinGame();
         }

@@ -62,14 +62,14 @@ public class Cell : MonoBehaviour
         {
             SetState(State.Unclicked);
         }
-        _board.CheckGameState();
+        _board.CheckWinState();
     }
 
     private void HandleLeftClick()
     {
         if (!_isActive) return;
         SetState(_isMined ? State.Mined : State.Clicked);
-        _board.CheckGameState();
+        _board.CheckWinState();
     }
 
     private void OnMouseExit()

@@ -32,9 +32,9 @@
 - [X] Game Logic:
    - [X] Write functions to handle revealing adjacent tiles when a tile with no adjacent mines is clicked.
    - [X] Implement game over conditions when a mine is clicked.
-- [ ] Win Condition:
-   - [ ] Write a function to check for the win condition when all non-mine tiles are revealed.
-   - [ ] Display a victory message when the win condition is met.
+- [X] Win Condition:
+   - [X] Write a function to check for the win condition when all non-mine tiles are revealed.
+   - [X] Display a victory message when the win condition is met.
 - [ ] UI Implementation:
    - [ ] Design and implement UI elements such as a restart button, timer, and mine counter.
    - [ ] Display messages for game over and victory conditions.

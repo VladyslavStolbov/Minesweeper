@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using _Scripts;
 using UnityEngine;
-using UnityEngine.XR;
 
 public class Cell : MonoBehaviour
 {
@@ -49,6 +48,7 @@ public class Cell : MonoBehaviour
         {
             HandleRightClick();
         }
+        
     }
 
     private void HandleRightClick()

@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -29,13 +26,13 @@ public class GameManager : MonoBehaviour
     public void WinGame()
     {
         _board.RevealBoard();
-        print("Win Game");
+        Debug.Log("Win Game");
     }
     
     public void LoseGame()
     {
         _board.RevealBoard();
-        print("Lose Game");
+        Debug.Log("Lose Game");
     }
 }
 

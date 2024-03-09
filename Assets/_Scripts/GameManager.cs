@@ -26,13 +26,11 @@ public class GameManager : MonoBehaviour
     public void WinGame()
     {
         _board.RevealBoard();
-        Debug.Log("Win Game");
     }
     
     public void LoseGame()
     {
         _board.RevealBoard();
-        Debug.Log("Lose Game");
     }
 }
 

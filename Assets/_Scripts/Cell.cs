@@ -16,18 +16,18 @@ public class Cell : MonoBehaviour
     [SerializeField] private Sprite _mineActivatedSprite;
     [SerializeField] private Sprite[] _numberSprites;
 
-    public bool _isActive { get; private set; } = true;
+    private bool _isActive = true;
+    private bool _isMined;
+    private int _minesAround;
     private GameManager _gameManager;
     private Board _board;
     private Vector2 _position;
     private State _currentState = State.Unclicked;
     private SpriteRenderer _spriteRenderer;
-    private int _minesAround;
-    private bool _isMined = false;
     
     private void Awake()
     {
-        _board = GameObject.FindWithTag("Grid").GetComponent<Board>();
+        _board = Board.Instance;
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _gameManager = GameManager.Instance;
     }
@@ -84,7 +84,6 @@ public class Cell : MonoBehaviour
     {
         return _currentState;
     }
-        
     
     public void SetState(State newState)
     {
@@ -133,15 +132,13 @@ public class Cell : MonoBehaviour
         switch (_currentState)
         {
             case State.Unclicked:
-                _isActive = true;
-                _spriteRenderer.sprite = _unclickedSprite;
+                HandleUnclickedState();
                 break;
             case State.Hovered:
-                _spriteRenderer.sprite = _hoveredSprite;
+                HandleHoveredState();
                 break;
             case State.Flagged:
-                _isActive = false;
-                _spriteRenderer.sprite = _flaggedSprite;
+                HandleFlaggedState();
                 break;
             case State.Mined:
                 HandleMinedState();
@@ -154,30 +151,72 @@ public class Cell : MonoBehaviour
         }
     }
 
+    private void HandleUnclickedState()
+    {
+        _isActive = true;
+        SetSprite(_unclickedSprite);
+    }
+
+    private void HandleHoveredState()
+    {
+        SetSprite(_hoveredSprite);
+    }
+
+    private void HandleFlaggedState()
+    {
+        _isActive = false;
+        SetSprite(_flaggedSprite);
+    }
+
     private void HandleMinedState()
     {
         _isActive = false;
-        _spriteRenderer.sprite = _mineActivatedSprite;
+        SetSprite(_mineActivatedSprite);
         _gameManager.LoseGame();
+    }
+
+    private void SetSprite(Sprite sprite)
+    {
+        _spriteRenderer.sprite = sprite;
     }
 
     private void HandleClickedState()
     {
         _isActive = false;
-        _minesAround = _board.CountMines(transform.localPosition);
+        _minesAround = CountMinesAroundCurrentCell();
     
         if (_minesAround == 0)
         {
-            gameObject.SetActive(false);
-            foreach (var cell in _board.GetNeighbours(transform.localPosition)
-                         .Where(cell => cell.GetState() != State.Clicked))
-            {
-                cell.SetState(State.Clicked);
-            }
+            DeactivateCellAndNeighbours();
         }
         else
         {
-            _spriteRenderer.sprite = _numberSprites[_minesAround - 1];
+            ShowNumberOnCell();
         }
+    }
+
+    private int CountMinesAroundCurrentCell()
+    {
+        return _board.CountMines(transform.localPosition);
+    }
+
+    private void DeactivateCellAndNeighbours()
+    {
+        gameObject.SetActive(false);
+        foreach (var cell in GetUnclickedNeighbours())
+        {
+            cell.SetState(State.Clicked);
+        }
+    }
+    
+    private IEnumerable<Cell> GetUnclickedNeighbours()
+    {
+        return _board.GetNeighbours(transform.localPosition)
+            .Where(cell => cell.GetState() != State.Clicked);
+    }
+
+    private void ShowNumberOnCell()
+    {
+        _spriteRenderer.sprite = _numberSprites[_minesAround - 1];
     }
 }

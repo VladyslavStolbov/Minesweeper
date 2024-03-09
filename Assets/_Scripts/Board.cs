@@ -36,6 +36,7 @@ public class Board : MonoBehaviour
         Setup(_width, _height, _cellSize);
     }
 
+    // Debug feature
     private void Update()
     {
         if (Input.GetKey(KeyCode.A))

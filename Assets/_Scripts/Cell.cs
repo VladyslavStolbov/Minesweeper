@@ -6,8 +6,7 @@ using UnityEngine;
 
 public class Cell : MonoBehaviour
 {
-    [Header("Sprites")]
-    [SerializeField] private Sprite _unclickedSprite;
+    [Header("Sprites")] [SerializeField] private Sprite _unclickedSprite;
     [SerializeField] private Sprite _hoveredSprite;
     [SerializeField] private Sprite _flaggedSprite;
     [SerializeField] private Sprite _flaggedCorrectSprite;
@@ -16,15 +15,15 @@ public class Cell : MonoBehaviour
     [SerializeField] private Sprite _mineActivatedSprite;
     [SerializeField] private Sprite[] _numberSprites;
 
+    public bool _isMined { get; private set; }
     private bool _isActive = true;
-    private bool _isMined;
     private int _minesAround;
     private GameManager _gameManager;
     private Board _board;
     private Vector2 _position;
     private State _currentState = State.Unclicked;
     private SpriteRenderer _spriteRenderer;
-    
+
     private void Awake()
     {
         _board = Board.Instance;
@@ -42,13 +41,12 @@ public class Cell : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             HandleLeftClick();
-        } 
-        
+        }
+
         else if (Input.GetMouseButtonDown(1))
         {
             HandleRightClick();
         }
-        
     }
 
     private void HandleRightClick()
@@ -57,11 +55,12 @@ public class Cell : MonoBehaviour
         {
             SetState(State.Flagged);
         }
-            
+
         else if (_currentState == State.Flagged)
         {
             SetState(State.Unclicked);
         }
+
         _board.CheckWinState();
     }
 
@@ -84,7 +83,7 @@ public class Cell : MonoBehaviour
     {
         return _currentState;
     }
-    
+
     public void SetState(State newState)
     {
         _currentState = newState;
@@ -99,34 +98,35 @@ public class Cell : MonoBehaviour
     public void ShowGameOverState()
     {
         _isActive = false;
+
         if (_currentState == State.Mined) return;
+
         if (_isMined && _currentState != State.Flagged)
         {
-            _spriteRenderer.sprite = _mineSprite;
+            SetSprite(_mineSprite);
         }
-        else if (_currentState == State.Flagged != _isMined)
+
+        else if (!_isMined && _currentState == State.Flagged)
         {
-            _spriteRenderer.sprite = _flaggedWrongSprite;
+            SetSprite(_flaggedWrongSprite);
         }
-        else if (_currentState == State.Flagged && _isMined)
+
+        else if (_isMined && _currentState == State.Flagged)
         {
-            _spriteRenderer.sprite = _flaggedCorrectSprite;
+            SetSprite(_flaggedCorrectSprite);
         }
+
         else
         {
             SetState(State.Clicked);
         }
     }
-    
+
     public void SetMine()
     {
         _isMined = true;
     }
 
-    public bool IsMined()
-    {
-        return _isMined;
-    }
     private void UpdateSprite()
     {
         switch (_currentState)
@@ -144,7 +144,7 @@ public class Cell : MonoBehaviour
                 HandleMinedState();
                 break;
             case State.Clicked:
-                HandleClickedState();            
+                HandleClickedState();
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -184,7 +184,7 @@ public class Cell : MonoBehaviour
     {
         _isActive = false;
         _minesAround = CountMinesAroundCurrentCell();
-    
+
         if (_minesAround == 0)
         {
             DeactivateCellAndNeighbours();
@@ -208,7 +208,7 @@ public class Cell : MonoBehaviour
             cell.SetState(State.Clicked);
         }
     }
-    
+
     private IEnumerable<Cell> GetUnclickedNeighbours()
     {
         return _board.GetNeighbours(transform.localPosition)

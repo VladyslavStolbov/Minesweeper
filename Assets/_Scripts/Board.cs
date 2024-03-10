@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using _Scripts;
@@ -81,8 +80,8 @@ public class Board : MonoBehaviour
         int minesPlaced = 0;
         while (minesPlaced != _minesAmount)
         {
-            Cell cell = _cells[UnityEngine.Random.Range(0, _cells.Count)];
-            if (cell.IsMined()) continue;
+            Cell cell = _cells[Random.Range(0, _cells.Count)];
+            if (cell._isMined) continue;
             cell.SetMine();
             minesPlaced++;
         }
@@ -90,12 +89,12 @@ public class Board : MonoBehaviour
 
     public int CountMines(Vector2 location)
     {
-        return GetNeighbours(location).Count(cell => cell.IsMined());
+        return GetNeighbours(location).Count(cell => cell._isMined);
     }
 
-    public List<Cell> GetNeighbours(Vector2 pos)
+    public IEnumerable<Cell> GetNeighbours(Vector2 pos)
     {
-        List<Cell> neighbours = new List<Cell>();
+        List<Cell> neighbours = new();
 
         foreach (Cell cell in _cells)
         {
@@ -124,10 +123,10 @@ public class Board : MonoBehaviour
 
     public void ExpandBoard(Vector2 pos)
     {
-        List<Cell> neighbours = GetNeighbours(pos);
+        IEnumerable<Cell> neighbours = GetNeighbours(pos);
 
         foreach (var neighbour in neighbours
-                     .Where(neighbour => neighbour.GetState() == State.Unclicked && !neighbour.IsMined()))
+                     .Where(neighbour => neighbour.GetState() == State.Unclicked && !neighbour._isMined))
         {
             neighbour.SetState(State.Clicked);
         }
@@ -135,7 +134,7 @@ public class Board : MonoBehaviour
 
     public void CheckWinState()
     {
-        int nonMinedCellsRevealed = _cells.Count(cell => !cell.IsMined() && cell.GetState() == State.Clicked);
+        int nonMinedCellsRevealed = _cells.Count(cell => !cell._isMined && cell.GetState() == State.Clicked);
         if (nonMinedCellsRevealed == _cells.Count - _minesAmount)
         {
             _gameManager.WinGame();

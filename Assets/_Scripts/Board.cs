@@ -57,13 +57,23 @@ public class Board : MonoBehaviour
         {
             for (int col = 0; col < height; col++)
             {
-                Transform newCell = Instantiate(_cell, gameObject.transform, true);
-                float xPosition = col - (width - 1) / 2f;
-                float yPosition = row - (height - 1) / 2f;
-                newCell.localPosition = new Vector2(xPosition * cellSize, yPosition * cellSize);
-                _cells.Add(newCell.GetComponent<Cell>());
+                CreateCell(width, height, cellSize, col, row);
             }
         }
+    }
+
+    private void CreateCell(int width, int height, float cellSize, int col, int row)
+    {
+        Transform newCell = Instantiate(_cell, gameObject.transform, true);
+        SetCellPosition(width, height, cellSize, col, row, newCell);
+        _cells.Add(newCell.GetComponent<Cell>());
+    }
+
+    private static void SetCellPosition(int width, int height, float cellSize, int col, int row, Transform newCell)
+    {
+        float xPosition = col - (width - 1) / 2f;
+        float yPosition = row - (height - 1) / 2f;
+        newCell.localPosition = new Vector2(xPosition * cellSize, yPosition * cellSize);
     }
 
     private void AssignMines()

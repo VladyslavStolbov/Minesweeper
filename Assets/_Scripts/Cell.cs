@@ -20,7 +20,6 @@ public class Cell : MonoBehaviour
     private int _minesAround;
     private GameManager _gameManager;
     private Board _board;
-    private Vector2 _position;
     private State _currentState = State.Unclicked;
     private SpriteRenderer _spriteRenderer;
 
@@ -47,6 +46,12 @@ public class Cell : MonoBehaviour
         {
             HandleRightClick();
         }
+        
+        else if (Input.GetMouseButton(0) && Input.GetMouseButton(1))
+        {
+            _board.ExpandIfFlagged(this);
+        }
+        _board.CheckWinState();
     }
 
     private void HandleRightClick()
@@ -61,9 +66,9 @@ public class Cell : MonoBehaviour
             SetState(State.Unclicked);
         }
 
-        _board.CheckWinState();
+ 
     }
-
+    
     private void HandleLeftClick()
     {
         if (!_isActive) return;
@@ -194,7 +199,7 @@ public class Cell : MonoBehaviour
             ShowNumberOnCell();
         }
     }
-
+    
     private int CountMinesAroundCurrentCell()
     {
         return _board.CountMines(transform.localPosition);

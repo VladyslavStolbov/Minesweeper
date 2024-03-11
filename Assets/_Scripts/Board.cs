@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using _Scripts;
+using UnityEditor;
 using UnityEngine;
 
 public class Board : MonoBehaviour
@@ -94,22 +95,15 @@ public class Board : MonoBehaviour
 
     public IEnumerable<Cell> GetNeighbours(Vector2 pos)
     {
-        List<Cell> neighbours = new();
-
-        foreach (Cell cell in _cells)
+        return _cells.Where(cell =>
         {
             Vector2 cellPosition = cell.transform.position;
             float xDiff = Mathf.Abs(pos.x - cellPosition.x);
             float yDiff = Mathf.Abs(pos.y - cellPosition.y);
 
             // Check if the cell is adjacent in any direction (horizontal, vertical, or diagonal)
-            if ((xDiff <= 1 && yDiff <= 1) && (xDiff + yDiff > 0 && xDiff + yDiff <= 2))
-            {
-                neighbours.Add(cell);
-            }
-        }
-
-        return neighbours;
+            return (xDiff <= 1 && yDiff <= 1) && (xDiff + yDiff > 0 && xDiff + yDiff <= 2);
+        });
     }
 
 
@@ -140,4 +134,25 @@ public class Board : MonoBehaviour
             _gameManager.WinGame();
         }
     }
+
+    public void ExpandIfFlagged(Cell cell)
+    {
+        IEnumerable<Cell> neighbours = GetNeighbours(cell.transform.localPosition);
+        int flagCount = neighbours.Count(obj => obj.GetState() == State.Flagged);
+
+        if (flagCount != CountMines(cell.transform.localPosition))
+            return;
+
+        foreach (Cell neighbour in neighbours)
+        {
+            if (neighbour.GetState() != State.Unclicked || neighbour._isMined)
+                continue;
+
+            neighbour.SetState(State.Clicked);
+
+            if (CountMines(neighbour.transform.localPosition) == 0)
+                ExpandBoard(neighbour.transform.localPosition);
+        }
+    }
+
 }

@@ -154,5 +154,4 @@ public class Board : MonoBehaviour
                 ExpandBoard(neighbour.transform.localPosition);
         }
     }
-
 }

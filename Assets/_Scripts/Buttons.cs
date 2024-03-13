@@ -5,8 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Buttons : MonoBehaviour
 {
-    public void PLay()
+    public void Play()
     {
         SceneManager.LoadSceneAsync("Game");
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 }

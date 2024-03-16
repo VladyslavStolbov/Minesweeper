@@ -1,6 +1,6 @@
 ﻿namespace _Scripts
 {
-    public enum State
+    public enum CellState
     {
         Unclicked,
         Hovered,

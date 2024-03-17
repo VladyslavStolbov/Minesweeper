@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class Cell : MonoBehaviour
 {
-    [Header("Sprites")] [SerializeField] private Sprite _unclickedSprite;
+    [Header("Sprites")] 
+    [SerializeField] private Sprite _unclickedSprite;
     [SerializeField] private Sprite _hoveredSprite;
     [SerializeField] private Sprite _flaggedSprite;
     [SerializeField] private Sprite _flaggedCorrectSprite;
@@ -18,23 +19,23 @@ public class Cell : MonoBehaviour
     public bool _isMined { get; private set; }
     private bool _isActive = true;
     private int _minesAround;
-    private GameManager _gameManager;
+    private GameController _gameController;
     private Board _board;
-    private State _currentState = State.Unclicked;
+    private CellState _currentCellState = CellState.Unclicked;
     private SpriteRenderer _spriteRenderer;
 
     private void Awake()
     {
         _board = Board.Instance;
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _gameManager = GameManager.Instance;
+        _gameController = GameController.Instance;
     }
 
     private void OnMouseOver()
     {
         if (_isActive)
         {
-            SetState(State.Hovered);
+            SetState(CellState.Hovered);
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -51,50 +52,46 @@ public class Cell : MonoBehaviour
         {
             _board.ExpandIfFlagged(this);
         }
-        _board.CheckWinState();
     }
 
     private void HandleRightClick()
     {
         if (_isActive)
         {
-            SetState(State.Flagged);
+            SetState(CellState.Flagged);
         }
 
-        else if (_currentState == State.Flagged)
+        else if (_currentCellState == CellState.Flagged)
         {
-            SetState(State.Unclicked);
+            SetState(CellState.Unclicked);
         }
-
- 
     }
     
     private void HandleLeftClick()
     {
         if (!_isActive) return;
-        SetState(_isMined ? State.Mined : State.Clicked);
-        _board.CheckWinState();
+        SetState(_isMined ? CellState.Mined : CellState.Clicked);
     }
 
     private void OnMouseExit()
     {
         if (_isActive)
         {
-            SetState(State.Unclicked);
+            SetState(CellState.Unclicked);
         }
     }
 
-    public State GetState()
+    public CellState GetState()
     {
-        return _currentState;
+        return _currentCellState;
     }
 
-    public void SetState(State newState)
+    public void SetState(CellState newCellState)
     {
-        _currentState = newState;
+        _currentCellState = newCellState;
         UpdateSprite();
 
-        if (newState == State.Clicked && !_isMined && _board.CountMines(transform.localPosition) == 0)
+        if (newCellState == CellState.Clicked && !_isMined && _board.CountMines(transform.localPosition) == 0)
         {
             _board.ExpandBoard(transform.localPosition);
         }
@@ -104,26 +101,26 @@ public class Cell : MonoBehaviour
     {
         _isActive = false;
 
-        if (_currentState == State.Mined) return;
+        if (_currentCellState == CellState.Mined) return;
 
-        if (_isMined && _currentState != State.Flagged)
+        if (_isMined && _currentCellState != CellState.Flagged)
         {
             SetSprite(_mineSprite);
         }
 
-        else if (!_isMined && _currentState == State.Flagged)
+        else if (!_isMined && _currentCellState == CellState.Flagged)
         {
             SetSprite(_flaggedWrongSprite);
         }
 
-        else if (_isMined && _currentState == State.Flagged)
+        else if (_isMined && _currentCellState == CellState.Flagged)
         {
             SetSprite(_flaggedCorrectSprite);
         }
 
         else
         {
-            SetState(State.Clicked);
+            SetState(CellState.Clicked);
         }
     }
 
@@ -134,21 +131,21 @@ public class Cell : MonoBehaviour
 
     private void UpdateSprite()
     {
-        switch (_currentState)
+        switch (_currentCellState)
         {
-            case State.Unclicked:
+            case CellState.Unclicked:
                 HandleUnclickedState();
                 break;
-            case State.Hovered:
+            case CellState.Hovered:
                 HandleHoveredState();
                 break;
-            case State.Flagged:
+            case CellState.Flagged:
                 HandleFlaggedState();
                 break;
-            case State.Mined:
+            case CellState.Mined:
                 HandleMinedState();
                 break;
-            case State.Clicked:
+            case CellState.Clicked:
                 HandleClickedState();
                 break;
             default:
@@ -177,7 +174,7 @@ public class Cell : MonoBehaviour
     {
         _isActive = false;
         SetSprite(_mineActivatedSprite);
-        _gameManager.LoseGame();
+        _gameController.EndGame(GameState.Lose);
     }
 
     private void SetSprite(Sprite sprite)
@@ -210,14 +207,14 @@ public class Cell : MonoBehaviour
         gameObject.SetActive(false);
         foreach (var cell in GetUnclickedNeighbours())
         {
-            cell.SetState(State.Clicked);
+            cell.SetState(CellState.Clicked);
         }
     }
 
     private IEnumerable<Cell> GetUnclickedNeighbours()
     {
         return _board.GetNeighbours(transform.localPosition)
-            .Where(cell => cell.GetState() != State.Clicked);
+            .Where(cell => cell.GetState() != CellState.Clicked);
     }
 
     private void ShowNumberOnCell()

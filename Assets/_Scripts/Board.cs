@@ -14,7 +14,7 @@ public class Board : MonoBehaviour
     [SerializeField] private int _minesAmount = 10;
     [SerializeField] private float _cellSize = 1f;
 
-    private GameManager _gameManager;
+    private GameController _gameController;
     private List<Cell> _cells;
 
     private void Awake()
@@ -31,7 +31,7 @@ public class Board : MonoBehaviour
     
     private void Start()
     {
-        _gameManager = GameManager.Instance;
+        _gameController = GameController.Instance;
         _cells = new List<Cell>();
         Setup(_width, _height, _cellSize);
     }
@@ -43,6 +43,8 @@ public class Board : MonoBehaviour
         {
             RevealBoard();
         }
+        
+        CheckWinState();
     }
 
     private void Setup(int width, int height, float cellSize)
@@ -120,35 +122,37 @@ public class Board : MonoBehaviour
         IEnumerable<Cell> neighbours = GetNeighbours(pos);
 
         foreach (var neighbour in neighbours
-                     .Where(neighbour => neighbour.GetState() == State.Unclicked && !neighbour._isMined))
+                     .Where(neighbour => neighbour.GetState() == CellState.Unclicked && !neighbour._isMined))
         {
-            neighbour.SetState(State.Clicked);
+            neighbour.SetState(CellState.Clicked);
         }
     }
 
     public void CheckWinState()
     {
-        int nonMinedCellsRevealed = _cells.Count(cell => !cell._isMined && cell.GetState() == State.Clicked);
+        if (_gameController._currentState != GameState.Ongoing) return;
+        
+        int nonMinedCellsRevealed = _cells.Count(cell => !cell._isMined && cell.GetState() == CellState.Clicked);
         if (nonMinedCellsRevealed == _cells.Count - _minesAmount)
         {
-            _gameManager.WinGame();
+            _gameController.EndGame(GameState.Win);
         }
     }
 
     public void ExpandIfFlagged(Cell cell)
     {
         IEnumerable<Cell> neighbours = GetNeighbours(cell.transform.localPosition);
-        int flagCount = neighbours.Count(obj => obj.GetState() == State.Flagged);
+        int flagCount = neighbours.Count(obj => obj.GetState() == CellState.Flagged);
 
         if (flagCount != CountMines(cell.transform.localPosition))
             return;
 
         foreach (Cell neighbour in neighbours)
         {
-            if (neighbour.GetState() != State.Unclicked || neighbour._isMined)
+            if (neighbour.GetState() != CellState.Unclicked || neighbour._isMined)
                 continue;
 
-            neighbour.SetState(State.Clicked);
+            neighbour.SetState(CellState.Clicked);
 
             if (CountMines(neighbour.transform.localPosition) == 0)
                 ExpandBoard(neighbour.transform.localPosition);

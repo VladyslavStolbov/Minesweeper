@@ -1819,8 +1819,8 @@ GameObject:
   - component: {fileID: 1130108158}
   - component: {fileID: 1130108157}
   m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
+  m_Name: GameController
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1914,6 +1914,7 @@ GameObject:
   - component: {fileID: 1661913437}
   - component: {fileID: 1661913436}
   - component: {fileID: 1661913439}
+  - component: {fileID: 1661913440}
   m_Layer: 5
   m_Name: Guy
   m_TagString: Untagged
@@ -2046,6 +2047,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc72cf84bbc074441b580b739fcabe85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _defaultSprite: {fileID: 21300000, guid: 55ff8baa6a6dc384487deac87a1fe506, type: 3}
+  _winSprite: {fileID: 21300000, guid: 398c52422ba657143a64cc34282c6ec9, type: 3}
+  _loseSprite: {fileID: 21300000, guid: 32368c9a0fa1ede4285ad2cdf2b2e760, type: 3}
+--- !u!95 &1661913440
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661913434}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bbbae45adbd539640b4f41fb8d917855, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1703916643
 GameObject:
   m_ObjectHideFlags: 0

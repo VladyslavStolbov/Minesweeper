@@ -1913,8 +1913,8 @@ GameObject:
   - component: {fileID: 1661913438}
   - component: {fileID: 1661913437}
   - component: {fileID: 1661913436}
-  - component: {fileID: 1661913439}
   - component: {fileID: 1661913440}
+  - component: {fileID: 1661913439}
   m_Layer: 5
   m_Name: Guy
   m_TagString: Untagged
@@ -1938,7 +1938,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 880}
+  m_AnchoredPosition: {x: 0, y: 815.5}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1661913436
@@ -2060,7 +2060,7 @@ Animator:
   m_GameObject: {fileID: 1661913434}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bbbae45adbd539640b4f41fb8d917855, type: 2}
+  m_Controller: {fileID: 9100000, guid: 661e839a5e12b8e4f8fbf89aa1c085be, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

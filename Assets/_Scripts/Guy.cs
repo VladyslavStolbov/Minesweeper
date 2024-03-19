@@ -14,11 +14,13 @@ public class Guy : MonoBehaviour
     
     private GameController _gameController;
     private Image _image;
+    private Animator _animator;
     
     private void Start()
     {
         _gameController = GameController.Instance;
         _image = GetComponent<Image>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -32,6 +34,7 @@ public class Guy : MonoBehaviour
                 _image.sprite = _winSprite;
                 break;
             case GameState.Lose:
+                _animator.Play("GuySurprised");
                 _image.sprite = _loseSprite;
                 break;
             default:

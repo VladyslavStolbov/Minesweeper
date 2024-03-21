@@ -64,7 +64,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,10 +75,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -102,7 +102,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -157,9 +157,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 51
-        height: 64
+        y: 2
+        width: 35
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,18 +177,18 @@ TextureImporter:
       name: ThaleahFat_TTF SDF Atlas_1
       rect:
         serializedVersion: 2
-        x: 51
-        y: 0
-        width: 51
-        height: 64
+        x: 37
+        y: 2
+        width: 35
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a6e781e8968426110800000000000000
+      spriteID: 27a32f8f5e3265640980e9d7de3dfd16
       internalID: 1252643264555155050
       vertices: []
       indices: 
@@ -198,18 +198,18 @@ TextureImporter:
       name: ThaleahFat_TTF SDF Atlas_2
       rect:
         serializedVersion: 2
-        x: 102
-        y: 0
-        width: 51
-        height: 64
+        x: 74
+        y: 2
+        width: 35
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 470b7c5491759d450800000000000000
+      spriteID: 56c1d33c5a71a5a47af966b6d79c02b2
       internalID: 6114013735188672628
       vertices: []
       indices: 
@@ -219,18 +219,18 @@ TextureImporter:
       name: ThaleahFat_TTF SDF Atlas_3
       rect:
         serializedVersion: 2
-        x: 153
-        y: 0
-        width: 51
-        height: 64
+        x: 111
+        y: 2
+        width: 34
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f408fbc6442670160800000000000000
+      spriteID: ac1add23903140347b16e4ba87ac040e
       internalID: 6991664992537772111
       vertices: []
       indices: 
@@ -240,18 +240,18 @@ TextureImporter:
       name: ThaleahFat_TTF SDF Atlas_4
       rect:
         serializedVersion: 2
-        x: 204
-        y: 0
-        width: 51
-        height: 64
+        x: 147
+        y: 2
+        width: 34
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: fd540859f97a172c0800000000000000
+      spriteID: 4c8cd90ca490293418a3aa4a9f90d358
       internalID: -4435579854133377569
       vertices: []
       indices: 
@@ -261,18 +261,18 @@ TextureImporter:
       name: ThaleahFat_TTF SDF Atlas_5
       rect:
         serializedVersion: 2
-        x: 255
-        y: 0
-        width: 51
-        height: 64
+        x: 183
+        y: 2
+        width: 35
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8b9b7888eae1f01a0800000000000000
+      spriteID: 9d86e74e3ec259146a3919631170251e
       internalID: -6841215573988755016
       vertices: []
       indices: 
@@ -282,18 +282,18 @@ TextureImporter:
       name: ThaleahFat_TTF SDF Atlas_6
       rect:
         serializedVersion: 2
-        x: 306
-        y: 0
-        width: 51
-        height: 64
+        x: 220
+        y: 2
+        width: 35
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5ec458274458431f0800000000000000
+      spriteID: 9434c4423d9c65d46bf53897822a55d5
       internalID: -1066080682754355995
       vertices: []
       indices: 
@@ -303,18 +303,18 @@ TextureImporter:
       name: ThaleahFat_TTF SDF Atlas_7
       rect:
         serializedVersion: 2
-        x: 357
-        y: 0
-        width: 51
-        height: 64
+        x: 257
+        y: 2
+        width: 34
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ac9002c2f57a78cf0800000000000000
+      spriteID: 64e0cc3865f90174b99bf283c3ee542f
       internalID: -250047227091744310
       vertices: []
       indices: 
@@ -324,18 +324,18 @@ TextureImporter:
       name: ThaleahFat_TTF SDF Atlas_8
       rect:
         serializedVersion: 2
-        x: 408
-        y: 0
-        width: 51
-        height: 64
+        x: 293
+        y: 2
+        width: 35
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e5d791a14d9810310800000000000000
+      spriteID: db97358dc19e0e14db58e0142d68355a
       internalID: 1369527305761291614
       vertices: []
       indices: 
@@ -345,18 +345,18 @@ TextureImporter:
       name: ThaleahFat_TTF SDF Atlas_9
       rect:
         serializedVersion: 2
-        x: 459
-        y: 0
-        width: 51
-        height: 64
+        x: 330
+        y: 2
+        width: 34
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6f4ae7923c04e92b0800000000000000
+      spriteID: ecd3f306190a6154094a3a5dd6c94a1b
       internalID: -5575948081679129354
       vertices: []
       indices: 

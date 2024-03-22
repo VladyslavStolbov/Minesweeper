@@ -1,37 +1,37 @@
 fileFormatVersion: 2
-guid: a7ccf6aabf13ed646a73503971aac77f
+guid: 3939a12e6e68fb24c8eb58cee4a3d577
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2520480019019042315
-    second: ThaleahFat_TTF SDF Atlas_0
+      213: 7598542702121236172
+    second: digital_numbers_NoBG_0
   - first:
-      213: 1252643264555155050
-    second: ThaleahFat_TTF SDF Atlas_1
+      213: 1940534485801993959
+    second: digital_numbers_NoBG_1
   - first:
-      213: 6114013735188672628
-    second: ThaleahFat_TTF SDF Atlas_2
+      213: 4519381393341990901
+    second: digital_numbers_NoBG_2
   - first:
-      213: 6991664992537772111
-    second: ThaleahFat_TTF SDF Atlas_3
+      213: 3189259277596374157
+    second: digital_numbers_NoBG_3
   - first:
-      213: -4435579854133377569
-    second: ThaleahFat_TTF SDF Atlas_4
+      213: -1442135313900801445
+    second: digital_numbers_NoBG_4
   - first:
-      213: -6841215573988755016
-    second: ThaleahFat_TTF SDF Atlas_5
+      213: -2405644334150902676
+    second: digital_numbers_NoBG_5
   - first:
-      213: -1066080682754355995
-    second: ThaleahFat_TTF SDF Atlas_6
+      213: -5111828293367701432
+    second: digital_numbers_NoBG_6
   - first:
-      213: -250047227091744310
-    second: ThaleahFat_TTF SDF Atlas_7
+      213: 3511183187300933772
+    second: digital_numbers_NoBG_7
   - first:
-      213: 1369527305761291614
-    second: ThaleahFat_TTF SDF Atlas_8
+      213: 8975929766417589371
+    second: digital_numbers_NoBG_8
   - first:
-      213: -5575948081679129354
-    second: ThaleahFat_TTF SDF Atlas_9
+      213: -948537905979951069
+    second: digital_numbers_NoBG_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -64,7 +64,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,10 +75,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -102,7 +102,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -153,13 +153,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ThaleahFat_TTF SDF Atlas_0
+      name: digital_numbers_NoBG_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 2
-        width: 35
-        height: 60
+        y: 8
+        width: 10
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,197 +167,197 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b0e8915293b8af220800000000000000
-      internalID: 2520480019019042315
+      spriteID: cc6b29a2452737960800000000000000
+      internalID: 7598542702121236172
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ThaleahFat_TTF SDF Atlas_1
+      name: digital_numbers_NoBG_1
       rect:
         serializedVersion: 2
-        x: 37
-        y: 2
-        width: 35
-        height: 60
+        x: 0
+        y: 0
+        width: 10
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 27a32f8f5e3265640980e9d7de3dfd16
-      internalID: 1252643264555155050
+      spriteID: 7e68f9c55d92eea10800000000000000
+      internalID: 1940534485801993959
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ThaleahFat_TTF SDF Atlas_2
+      name: digital_numbers_NoBG_2
       rect:
         serializedVersion: 2
-        x: 74
-        y: 2
-        width: 35
-        height: 60
+        x: 16
+        y: 0
+        width: 14
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 56c1d33c5a71a5a47af966b6d79c02b2
-      internalID: 6114013735188672628
+      spriteID: 5f7c8aabe6118be30800000000000000
+      internalID: 4519381393341990901
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ThaleahFat_TTF SDF Atlas_3
+      name: digital_numbers_NoBG_3
       rect:
         serializedVersion: 2
-        x: 111
-        y: 2
-        width: 34
-        height: 60
+        x: 32
+        y: 0
+        width: 8
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ac1add23903140347b16e4ba87ac040e
-      internalID: 6991664992537772111
+      spriteID: d8430c16a66824c20800000000000000
+      internalID: 3189259277596374157
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ThaleahFat_TTF SDF Atlas_4
+      name: digital_numbers_NoBG_4
       rect:
         serializedVersion: 2
-        x: 147
+        x: 40
         y: 2
-        width: 34
-        height: 60
+        width: 10
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 4c8cd90ca490293418a3aa4a9f90d358
-      internalID: -4435579854133377569
+      spriteID: b5275e0a2918cfbe0800000000000000
+      internalID: -1442135313900801445
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ThaleahFat_TTF SDF Atlas_5
+      name: digital_numbers_NoBG_5
       rect:
         serializedVersion: 2
-        x: 183
-        y: 2
-        width: 35
-        height: 60
+        x: 50
+        y: 0
+        width: 10
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 9d86e74e3ec259146a3919631170251e
-      internalID: -6841215573988755016
+      spriteID: c6c1107493f6d9ed0800000000000000
+      internalID: -2405644334150902676
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ThaleahFat_TTF SDF Atlas_6
+      name: digital_numbers_NoBG_6
       rect:
         serializedVersion: 2
-        x: 220
-        y: 2
-        width: 35
-        height: 60
+        x: 60
+        y: 0
+        width: 10
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 9434c4423d9c65d46bf53897822a55d5
-      internalID: -1066080682754355995
+      spriteID: 840e60530432f09b0800000000000000
+      internalID: -5111828293367701432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ThaleahFat_TTF SDF Atlas_7
+      name: digital_numbers_NoBG_7
       rect:
         serializedVersion: 2
-        x: 257
-        y: 2
-        width: 34
-        height: 60
+        x: 72
+        y: 8
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 64e0cc3865f90174b99bf283c3ee542f
-      internalID: -250047227091744310
+      spriteID: c80656c718a3ab030800000000000000
+      internalID: 3511183187300933772
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ThaleahFat_TTF SDF Atlas_8
+      name: digital_numbers_NoBG_8
       rect:
         serializedVersion: 2
-        x: 293
-        y: 2
-        width: 35
-        height: 60
+        x: 76
+        y: 0
+        width: 14
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: db97358dc19e0e14db58e0142d68355a
-      internalID: 1369527305761291614
+      spriteID: b74ec28e098e09c70800000000000000
+      internalID: 8975929766417589371
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ThaleahFat_TTF SDF Atlas_9
+      name: digital_numbers_NoBG_9
       rect:
         serializedVersion: 2
-        x: 330
-        y: 2
-        width: 34
-        height: 60
+        x: 90
+        y: 0
+        width: 10
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ecd3f306190a6154094a3a5dd6c94a1b
-      internalID: -5575948081679129354
+      spriteID: 3287212dccd16d2f0800000000000000
+      internalID: -948537905979951069
       vertices: []
       indices: 
       edges: []
@@ -365,24 +365,14 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 0a2c4fc6722b3684882ba79daf04bdc4
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      ThaleahFat_TTF SDF Atlas_0: 2520480019019042315
-      ThaleahFat_TTF SDF Atlas_1: 1252643264555155050
-      ThaleahFat_TTF SDF Atlas_2: 6114013735188672628
-      ThaleahFat_TTF SDF Atlas_3: 6991664992537772111
-      ThaleahFat_TTF SDF Atlas_4: -4435579854133377569
-      ThaleahFat_TTF SDF Atlas_5: -6841215573988755016
-      ThaleahFat_TTF SDF Atlas_6: -1066080682754355995
-      ThaleahFat_TTF SDF Atlas_7: -250047227091744310
-      ThaleahFat_TTF SDF Atlas_8: 1369527305761291614
-      ThaleahFat_TTF SDF Atlas_9: -5575948081679129354
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

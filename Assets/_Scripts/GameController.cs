@@ -1,11 +1,15 @@
 using System;
 using _Scripts;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameController : MonoBehaviour
 {
     public static GameController Instance;
 
+    public UnityEvent OnGameStart;
+    public UnityEvent OnGameEnd;
+    
     private Board _board;
     public GameState _currentState { get; private set; }
     
@@ -25,6 +29,7 @@ public class GameController : MonoBehaviour
     { 
         _board = Board.Instance;
         _currentState = GameState.Ongoing;
+        OnGameStart.Invoke();
     }
 
     public void EndGame(GameState state)
@@ -45,7 +50,7 @@ public class GameController : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException();
         }
-
+        OnGameEnd.Invoke();
     }
 }
 

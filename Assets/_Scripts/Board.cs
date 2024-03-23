@@ -11,7 +11,7 @@ public class Board : MonoBehaviour
     [SerializeField] private Transform _cell;
     [SerializeField] private int _width = 9;
     [SerializeField] private int _height = 9;
-    [SerializeField] private int _minesAmount = 10;
+    [SerializeField] private  int _minesAmount = 10;
     [SerializeField] private float _cellSize = 1f;
 
     private GameController _gameController;

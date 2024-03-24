@@ -7,11 +7,11 @@ using UnityEngine;
 public class Board : MonoBehaviour
 {
     public static Board Instance;
-    
+        
+    public int _minesAmount { get; private set; } = 10;
     [SerializeField] private Transform _cell;
     [SerializeField] private int _width = 9;
     [SerializeField] private int _height = 9;
-    [SerializeField] private  int _minesAmount = 10;
     [SerializeField] private float _cellSize = 1f;
 
     private GameController _gameController;
@@ -128,7 +128,7 @@ public class Board : MonoBehaviour
         }
     }
 
-    public void CheckWinState()
+    private void CheckWinState()
     {
         if (_gameController._currentState != GameState.Ongoing) return;
         
@@ -158,4 +158,9 @@ public class Board : MonoBehaviour
                 ExpandBoard(neighbour.transform.localPosition);
         }
     }
+    
+    public int CountFlaggedCells()
+    {
+        return _cells.Count(cell => cell.GetState() == CellState.Flagged);
+    }   
 }

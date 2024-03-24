@@ -1995,6 +1995,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 989cdb59d4752ef44bbd11d13f26c1f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnGameStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGameEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1130108158
 Transform:
   m_ObjectHideFlags: 0
@@ -2098,6 +2104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1354761189}
+  - component: {fileID: 1354761190}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -2126,6 +2133,19 @@ RectTransform:
   m_AnchoredPosition: {x: 315, y: 720}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1354761190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354761188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15174d2be79c2b046928f1816c9258d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerText: {fileID: 1500614759}
 --- !u!1 &1500614755
 GameObject:
   m_ObjectHideFlags: 0
@@ -2136,7 +2156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1500614756}
   - component: {fileID: 1500614758}
-  - component: {fileID: 1500614757}
+  - component: {fileID: 1500614759}
   m_Layer: 5
   m_Name: Numbers
   m_TagString: Untagged
@@ -2163,7 +2183,15 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: 256, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1500614757
+--- !u!222 &1500614758
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500614755}
+  m_CullTransparentMesh: 1
+--- !u!114 &1500614759
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2196,15 +2224,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 0
---- !u!222 &1500614758
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1500614755}
-  m_CullTransparentMesh: 1
+  m_Text: 00
 --- !u!1 &1504602683
 GameObject:
   m_ObjectHideFlags: 0

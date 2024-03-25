@@ -367,7 +367,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 10
+  m_Text: 0
 --- !u!222 &288136769
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2257,7 +2257,6 @@ MonoBehaviour:
   _cell: {fileID: 61197484571540122, guid: 9975a88fc73e6584cbf4e756e75bdb36, type: 3}
   _width: 9
   _height: 9
-  _minesAmount: 10
   _cellSize: 1
 --- !u!4 &1504602685
 Transform:
@@ -2283,8 +2282,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1511776762}
+  - component: {fileID: 1511776763}
   m_Layer: 5
-  m_Name: Mines
+  m_Name: MinesDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2311,6 +2311,19 @@ RectTransform:
   m_AnchoredPosition: {x: -315, y: 720}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1511776763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511776761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 250c3128ac4ea7246974ac338e7068ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _text: {fileID: 288136768}
 --- !u!1 &1661913434
 GameObject:
   m_ObjectHideFlags: 0

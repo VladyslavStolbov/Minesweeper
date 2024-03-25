@@ -20,6 +20,8 @@ public class MinesDisplay : MonoBehaviour
 
     public void UpdateMinesCount()
     {
+        _flagsAmount = _board.CountFlaggedCells();
+        if (_flagsAmount > _board._minesAmount) _flagsAmount = _board._minesAmount;
         _minesLeft = _board._minesAmount - _flagsAmount;
         _text.text = _minesLeft.ToString();
     }

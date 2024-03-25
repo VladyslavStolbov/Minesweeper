@@ -23,12 +23,14 @@ public class Cell : MonoBehaviour
     private Board _board;
     private CellState _currentCellState = CellState.Unclicked;
     private SpriteRenderer _spriteRenderer;
+    private MinesDisplay _minesDisplay;
 
     private void Awake()
     {
         _board = Board.Instance;
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _gameController = GameController.Instance;
+        _minesDisplay = GameObject.FindGameObjectWithTag("UI/MinesDisplay").GetComponent<MinesDisplay>();
     }
 
     private void OnMouseOver()
@@ -65,6 +67,7 @@ public class Cell : MonoBehaviour
         {
             SetState(CellState.Unclicked);
         }
+        _minesDisplay.UpdateMinesCount();
     }
     
     private void HandleLeftClick()

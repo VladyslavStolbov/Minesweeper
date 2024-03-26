@@ -58,7 +58,7 @@ public class Cell : MonoBehaviour
 
     private void HandleRightClick()
     {
-        if (_isActive)
+        if (_isActive && _board.CountFlaggedCells() < _board._minesAmount)
         {
             SetState(CellState.Flagged);
         }

@@ -72,7 +72,7 @@ public class Cell : MonoBehaviour
     
     private void HandleLeftClick()
     {
-        if (!_isActive) return;
+        if (!_isActive) _board.ExpandIfFlagged(this);
         SetState(_isMined ? CellState.Mined : CellState.Clicked);
     }
 

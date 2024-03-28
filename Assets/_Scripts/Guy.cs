@@ -31,11 +31,10 @@ public class Guy : MonoBehaviour
                 _image.sprite = _defaultSprite;
                 break;
             case GameState.Win:
-                _image.sprite = _winSprite;
+                _animator.Play("GuyFlex");
                 break;
             case GameState.Lose:
                 _animator.Play("GuySurprised");
-                _image.sprite = _loseSprite;
                 break;
             default:
                 throw new ArgumentOutOfRangeException();

@@ -24,13 +24,15 @@ public class Cell : MonoBehaviour
     private CellState _currentCellState = CellState.Unclicked;
     private SpriteRenderer _spriteRenderer;
     private MinesDisplay _minesDisplay;
-
+    private Animator _animator;
+    
     private void Awake()
     {
         _board = Board.Instance;
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _gameController = GameController.Instance;
         _minesDisplay = GameObject.FindGameObjectWithTag("UI/MinesDisplay").GetComponent<MinesDisplay>();
+        _animator = GetComponent<Animator>();
     }
 
     private void OnMouseOver()
@@ -177,6 +179,8 @@ public class Cell : MonoBehaviour
     {
         _isActive = false;
         SetSprite(_mineActivatedSprite);
+        _animator.enabled = true;
+        _animator.Play("MineExplosion");
         _gameController.EndGame(GameState.Lose);
     }
 

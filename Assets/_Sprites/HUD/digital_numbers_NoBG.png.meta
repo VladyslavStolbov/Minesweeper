@@ -372,7 +372,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      digital_numbers_NoBG_0: 7598542702121236172
+      digital_numbers_NoBG_1: 1940534485801993959
+      digital_numbers_NoBG_2: 4519381393341990901
+      digital_numbers_NoBG_3: 3189259277596374157
+      digital_numbers_NoBG_4: -1442135313900801445
+      digital_numbers_NoBG_5: -2405644334150902676
+      digital_numbers_NoBG_6: -5111828293367701432
+      digital_numbers_NoBG_7: 3511183187300933772
+      digital_numbers_NoBG_8: 8975929766417589371
+      digital_numbers_NoBG_9: -948537905979951069
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -28,13 +28,13 @@ public class Timer : MonoBehaviour
         currentTime = 0f;
     }
 
-    private void Update() 
+    private void Update()
     {
         if (!isPaused) {
-            currentTime += Time.deltaTime;            
+            currentTime += Time.deltaTime;
         }
         TimeSpan time = TimeSpan.FromSeconds(currentTime);
-        timerText.text = time.Seconds.ToString();
+        timerText.text = ((int)time.TotalSeconds).ToString();
     }
 
     private void StartTimer() 

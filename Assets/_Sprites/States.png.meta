@@ -272,6 +272,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: States_7
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef7359f940188844f915caf89e766e41
+      internalID: -6377784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -290,6 +311,7 @@ TextureImporter:
       States_4: -367645955
       States_5: 2121660017
       States_6: 1216909212
+      States_7: -6377784
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -9,6 +9,5 @@ public class CameraManager : MonoBehaviour
     private void Start()
     {
         _pixelPerfectCamera = GetComponent<PixelPerfectCamera>(); 
-        //_pixelPerfectCamera.runInEditMode = true;
     }
 }

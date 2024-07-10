@@ -212,7 +212,7 @@ public class Cell : MonoBehaviour
     private void DeactivateCellAndNeighbours()
     {
         gameObject.SetActive(false);
-        foreach (var cell in GetUnclickedNeighbours())
+        foreach (Cell cell in GetUnclickedNeighbours())
         {
             cell.SetState(CellState.Clicked);
         }

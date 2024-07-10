@@ -6,8 +6,8 @@ public class Timer : MonoBehaviour
 {
     private GameController _gameController;
     [SerializeField] private Text timerText;
-    private float currentTime;
-    private bool isPaused;
+    private float _currentTime;
+    private bool _isPaused;
     
     private void OnEnable()
     {
@@ -24,27 +24,27 @@ public class Timer : MonoBehaviour
     private void Awake()
     {
         _gameController = GameObject.FindGameObjectWithTag("GameController").gameObject.GetComponent<GameController>();
-        isPaused = true;
-        currentTime = 0f;
+        _isPaused = true;
+        _currentTime = 0f;
     }
 
     private void Update()
     {
-        if (!isPaused) {
-            currentTime += Time.deltaTime;
+        if (!_isPaused) {
+            _currentTime += Time.deltaTime;
         }
-        TimeSpan time = TimeSpan.FromSeconds(currentTime);
+        TimeSpan time = TimeSpan.FromSeconds(_currentTime);
         timerText.text = ((int)time.TotalSeconds).ToString();
     }
 
     private void StartTimer() 
     {
-        isPaused = false;
+        _isPaused = false;
     }
 
     private void StopTimer()
     {
-        isPaused = true;
+        _isPaused = true;
     }
     
 }

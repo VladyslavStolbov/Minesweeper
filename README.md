@@ -23,10 +23,9 @@
 - [X] Place Mines:
    - [X] Write a script to randomly place a specified number of mines on the grid.
    - [X] Ensure no two mines are placed in the same location.
-- [ ] Tile Interaction:
+- [X] Tile Interaction:
    - [X] Implement mouse click detection on tiles.
    - [X] Write logic to handle left-click to reveal a tile and right-click to flag/unflag a tile as a potential mine.
-   - [ ] Logic to left and right click together for revealing all cells around number without flags.
 - [X] Game Logic:
    - [X] Write functions to handle revealing adjacent tiles when a tile with no adjacent mines is clicked.
    - [X] Implement game over conditions when a mine is clicked.

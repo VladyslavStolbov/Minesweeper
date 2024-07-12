@@ -28,14 +28,14 @@ The goal of Minesweeper is to clear a rectangular board containing hidden "mines
 - **Right Click**: Flag a tile as a mine.
 - **Left Click to number cell**: For expand.
 
+## Credits
+- **Pixel Art**: [Alb_pixel](https://alb-pixel-store.itch.io/)
+
 ## Screenshots
 <img src="https://github.com/user-attachments/assets/47c74495-8d9f-4933-b6fd-6ff43e9cb817" width="500" height="500">
 <img src="https://github.com/user-attachments/assets/ac03ecb0-4361-4395-996f-9819e584b0c5" width="500" height="500">
 <img src="https://github.com/user-attachments/assets/c790b846-8b1e-40d3-b02c-3fd05e3be5ae" width="500" height="500">
 <img src="https://github.com/user-attachments/assets/53776b37-fdd4-43d0-9d26-2fe100404984" width="500" height="500">
-
-## Credits
-- **Pixel Art**: [Alb_pixel](https://alb-pixel-store.itch.io/)
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.

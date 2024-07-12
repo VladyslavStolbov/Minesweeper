@@ -1,11 +1,10 @@
-# Minesweeper 💣
+# Minesweeper 💣 [Play](https://vladyslavstolbov.itch.io/minesweeper) <--
 
 ![image](https://github.com/user-attachments/assets/bdef8f42-8383-44e9-8437-61a34a7c9744)
 
 
 ## Table of Contents
 - [About the Game](#about-the-game)
-- [Installation](#installation)
 - [How to Play](#how-to-play)
 - [Controls](#controls)
 - [Screenshots](#screenshots)

@@ -1,41 +1,44 @@
-# Minesweeper
+# Minesweeper 💣
 
-## MVP:
+![image](https://github.com/user-attachments/assets/652ef11a-bfa9-46d8-99ad-95b72bbd74fb)
 
-- [X] Grid Generation: Generate a grid of tiles representing the game board.
-- [X] Tile Placement: Place mines randomly on the grid.
-- [X] Tile Interaction: Allow players to reveal tiles and flag potential mines.
-- [X] Game Logic: Implement the core game rules, including revealing adjacent tiles and ending the game when a mine is clicked.
-- [X] Win Condition: Check for win condition when all non-mine tiles are revealed.
-- [ ] Web Compatibility: Ensure the game can be played seamlessly in a web browser.
 
-## TODO:
 
-- [X] Setup Unity Project:
-  - [X] Create a new Unity project.
-  - [X] Set up necessary folders for scripts, prefabs, and assets.
-- [X] Create Tile Prefab:
-  - [X] Design a prefab for a single tile with visual representation for unrevealed, revealed, flagged, and mine states.
-  - [X] Attach a script to manage tile behavior (e.g., revealing, flagging).
-- [X] Generate Grid:
-  - [X] Write a script to generate a grid of tiles based on the desired size (rows and columns).
-  - [X] Instantiate tile prefabs and position them accordingly.
-- [X] Place Mines:
-  - [X] Write a script to randomly place a specified number of mines on the grid.
-  - [X] Ensure no two mines are placed in the same location.
-- [X] Tile Interaction:
-  - [X] Implement mouse click detection on tiles.
-  - [X] Write logic to handle left-click to reveal a tile and right-click to flag/unflag a tile as a potential mine.
-- [X] Game Logic:
-  - [X] Write functions to handle revealing adjacent tiles when a tile with no adjacent mines is clicked.
-  - [X] Implement game over conditions when a mine is clicked.
-- [X] Win Condition:
-  - [X] Write a function to check for the win condition when all non-mine tiles are revealed.
-  - [X] Display a victory message when the win condition is met.
-- [ ] Web Compatibility:
-  - [ ] Optimize the game for web deployment.
-  - [ ] Test the game in web browsers to ensure compatibility and performance.
-- [ ] Polish:
-  - [ ] Refactor code for readability and optimization.
-  - [ ] Add sound effects and animations to enhance user experience.
-  - [ ] Make any necessary adjustments based on user feedback.
+
+## Table of Contents
+- [About the Game](#about-the-game)
+- [Installation](#installation)
+- [How to Play](#how-to-play)
+- [Controls](#controls)
+- [Screenshots](#screenshots)
+- [Credits](#credits)
+- [License](#license)
+
+## About the Game
+Minesweeper is a classic minesweeper game reimagined with pixel art style. This version maintains the core gameplay mechanics of the traditional minesweeper.
+
+## How to Play
+The goal of Minesweeper is to clear a rectangular board containing hidden "mines" without detonating any of them, with help from clues about the number of neighboring mines in each field.
+
+1. **Reveal Tiles**: Left-click on a tile to reveal it.
+2. **Flag Mines**: Right-click on a tile to flag it as a mine.
+3. **Expand**: Left-click to number for revealing cells around(if needed amount of ceels is flagged).
+4. **Win the Game**: Reveal all tiles that do not contain mines to win.
+
+## Controls
+- **Left Click**: Reveal a tile.
+- **Right Click**: Flag a tile as a mine.
+- **Left Click to number cell**: For expand.
+
+## Screenshots
+<img src="https://github.com/user-attachments/assets/47c74495-8d9f-4933-b6fd-6ff43e9cb817" width="500" height="500">
+<img src="https://github.com/user-attachments/assets/ac03ecb0-4361-4395-996f-9819e584b0c5" width="500" height="500">
+<img src="https://github.com/user-attachments/assets/c790b846-8b1e-40d3-b02c-3fd05e3be5ae" width="500" height="500">
+
+
+## Credits
+- **Pixel Art**: Artist's Name
+- **Sound Effects**: Source/Creator
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.

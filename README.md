@@ -1,4 +1,4 @@
-# Minesweeper 💣 [Play](https://vladyslavstolbov.itch.io/minesweeper) <--
+# Minesweeper 💣 [Play](https://vladyslavstolbov.itch.io/minesweeper) | [Demo](https://youtu.be/Nq-CJy-1k4U)
 
 ![image](https://github.com/user-attachments/assets/bdef8f42-8383-44e9-8437-61a34a7c9744)
 
